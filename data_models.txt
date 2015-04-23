@@ -1,0 +1,64 @@
+============================================
+Event
+============================================
+name : String : required
+start date / time : Date : required 
+end date / time : Date : required 
+recurrence : Recurrence : optional 
+location : Location : required 
+contact : Person : required 
+fbEvent : String : optional 
+eventUri : String : optional 
+ticketsOnSale : Boolean : optional 
+ticketUri : String : optional 
+uris : [LabeledUri] : optional 
+
+============================================
+Community 
+============================================
+name : String : required
+location : Location : required 
+contact : Person : required 
+fbPage : String : optional
+rcEmail : String : optional 
+twitter : String : optional 
+uris : [LabeledUri] : optional 
+
+============================================
+Person
+============================================
+firstName : String : required 
+lastName : String : required 
+playaName : String : optional 
+email : String : required 
+fbUserId : string : optional 
+
+============================================
+Location
+============================================
+- requires either a name or lat/lng coordinates (may contain both)
+- will require validation that appropriate location data is present 
+============================================
+name : String : required 
+lat : Number : required 
+lng : Number : required 
+city : String : optional
+country : String : required 
+regionalContact : [Person] : optional 
+
+============================================
+LabeledUri
+============================================
+label : String : required 
+uri : String : required 
+
+============================================
+Recurrence
+============================================
+- I recommend a very simple recurrence implementation, at least initially: 
+  - allowed values: 1 (weekly), 2 (monthly)
+  - if monthly, by day of week only (for example: 3rd Thursday of each month)
+  - recurrence only allowed to extend for 1 year max (52 weekly events / 12 monthly events)
+============================================
+pattern : Number : required 
+duration : Number : required 
