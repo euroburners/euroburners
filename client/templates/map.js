@@ -22,10 +22,6 @@ Template.map.rendered = function() {
     markerColor: 'purple'
   });
   
-  // map.on('dblclick', function(event) {
-  //   Markers.insert({latlng: event.latlng});
-  // });
-  
   map.setView([49, 9], 5);
 
   // set tile provider (REF: http://leaflet-extras.github.io/leaflet-providers/preview/)
