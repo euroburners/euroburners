@@ -1,5 +1,5 @@
 // initialize collection
-Events = new Meteor.Collection('events');
+Events = new Mongo.Collection('events');
 
 // "name"
 // "description"

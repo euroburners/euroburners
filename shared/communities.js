@@ -1,5 +1,5 @@
 // initialize collection
-Communities = new Meteor.Collection('communities');
+Communities = new Mongo.Collection('communities');
 
 Communities.helpers({
   location: function() {

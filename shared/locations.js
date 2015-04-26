@@ -1,5 +1,5 @@
 // initialize collection
-Locations = new Meteor.Collection('locations');
+Locations = new Mongo.Collection('locations');
 
 Locations.helpers({
   regionals: function() {

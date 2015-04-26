@@ -1,5 +1,5 @@
 // initialize collection
-LabeledUris = new Meteor.Collection('labeledUris');
+LabeledUris = new Mongo.Collection('labeledUris');
 
 // LabeledUris.helpers({
 //   

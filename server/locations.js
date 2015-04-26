@@ -3,14 +3,11 @@ Meteor.publish("locations", function () {
 });
 
 Meteor.methods({
-  reverseGeocode: function(doc) {
+  reverseGeocode: function(lat, lng) {
     var geo = new GeoCoder();
     // var geo = new GeoCoder({geocoderProvider: "openstreetmap"});
     
-    return {
-      originalDoc: doc, 
-      geoResponse: geo.reverse(doc.nextEvent.lat, doc.nextEvent.lng)[0]
-    };
+    return geo.reverse(lat, lng);
   },
   
   geocode: function(location) {

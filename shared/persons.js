@@ -1,5 +1,5 @@
 // initialize collection
-Persons = new Meteor.Collection('persons');
+Persons = new Mongo.Collection('persons');
 
 // Persons.helpers({
 //   
