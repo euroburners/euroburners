@@ -1,0 +1,1 @@
+AppSettings = new Mongo.Collection('appSettings');

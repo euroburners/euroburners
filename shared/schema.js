@@ -71,10 +71,6 @@ Schemas.Location = new SimpleSchema({
   },
   country: {
     type: String 
-  },
-  regionalContacts: {
-    type: [String], // array of id values corresponding to Person collection 
-    optional: true
   }
 });
 
@@ -104,10 +100,13 @@ Schemas.Community = new SimpleSchema({
     optional: true,
     regEx: SimpleSchema.RegEx.Url
   },
-  rcEmail: {
+  regionalContactEmail: {
     type: String,
-    optional: true,
-    regEx: SimpleSchema.RegEx.Email
+    optional: true
+  },
+  regionalContactUri: {
+    type: String,
+    optional: true
   },
   twitter: {
     type: String,

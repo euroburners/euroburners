@@ -10,5 +10,11 @@ Locations.helpers({
     });
     
     return regionals;
+  },
+  getLocation: function() {
+    return Locations.findOne(this.location);
+  },
+  getContact: function() {
+    return Persons.findOne(this.contact);
   }
-})
+});
