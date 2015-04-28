@@ -158,36 +158,42 @@ function insertEvent(burn, geoResponse) {
 // Populate communities from list of known cities
 // =================================================================
 function seedCommunities() {
-  var locations = [
-    'Amsterdam, NL',
-    'Berlin, DE',
-    'Barcelona, ES',
-    'London, GB',
-    'Bristol, GB',
-    'Brussels, BE',
-    'Paris, FR',
-    'Milan, IT',
-    'Munich, DE',
-    'Vienna, AT',
-    'Prague, CZ',
-    'Moscow, RU',
-    'Israel',
-    'Latvia',
-    'Lithuania',
-    'Estonia',
-    'Finland'
+  var regionals = [
+    { email: 'austria@burningman.com', name: 'Austria', uri: 'http://regionals.burningman.org/regionals/europe/austria/' },
+    { email: 'belgium@burningman.com', name: 'Belgium', description: 'Burners from Belgium', uri: 'http://regionals.burningman.org/regionals/europe/belgium/' },
+    { email: 'czech@burningman.com', name: 'Czech Republic', uri: 'http://regionals.burningman.org/regionals/europe/czech-republic/' },
+    { email: 'denmark@burningman.com', name: 'Denmark', uri: 'http://regionals.burningman.org/regionals/europe/denmark/' },
+    { email: 'easterneurope@burningman.com', name: 'Eastern Europe', uri: 'http://regionals.burningman.org/regionals/europe/eastern-europe/' },
+    { email: 'europe@burningman.com', name: 'Europe', uri: 'http://regionals.burningman.org/regionals/europe/europe/' },
+    { email: 'finland@burningman.com', name: 'Finland', uri: 'http://regionals.burningman.org/regionals/europe/finland/' },
+    { email: 'paris@burningman.com', name: 'France', uri: 'http://regionals.burningman.org/regionals/europe/paris/' },
+    { email: 'germany@burningman.com', name: 'Germany', uri: 'http://regionals.burningman.org/regionals/europe/germany/' },
+    { email: 'greece@burningman.com', name: 'Greece', uri: 'http://regionals.burningman.org/regionals/europe/greece/' },
+    { email: 'ireland@burningman.com', name: 'Ireland', uri: 'http://regionals.burningman.org/regionals/europe/ireland/' },
+    { email: 'italy@burningman.com', name: 'Italy', uri: 'http://regionals.burningman.org/regionals/europe/italy/' },
+    { email: 'latvia@burningman.com', name: 'Latvia', uri: 'http://regionals.burningman.org/regionals/europe/latvia/' },
+    { email: 'lithuania@burningman.com', name: 'Lithuania', uri: 'http://regionals.burningman.org/regionals/europe/lithuania/' },
+    { email: 'israel@burningman.com', name: 'Israel', description: 'MIDBURN - Israel', uri: 'http://regionals.burningman.org/regionals/europe/israel/' },
+    { email: 'netherlands@burningman.com', name: 'Netherlands', uri: 'http://regionals.burningman.org/regionals/europe/netherlands/' },
+    { email: 'poland@burningman.com', name: 'Poland', uri: 'http://regionals.burningman.org/regionals/europe/poland/' },
+    { email: 'russia@burningman.com', name: 'Russia', uri: 'http://regionals.burningman.org/regionals/europe/russia/' },
+    { email: 'spain@burningman.com', name: 'Spain', uri: 'http://regionals.burningman.org/regionals/europe/spain/' },
+    { email: 'barcelona@burningman.com', name: 'Barcelona', description: 'Barcelona Burning Man Community', uri: 'http://regionals.burningman.org/regionals/europe/spain-barcelona/' },
+    { email: 'sweden@burningman.com', name: 'Sweden', uri: 'http://regionals.burningman.org/regionals/europe/sweden/' },
+    { email: 'switzerland@burningman.com', name: 'Switzerland', uri: 'http://regionals.burningman.org/regionals/europe/switzerland/' },
+    { email: 'uk@burningman.com', name: 'United Kingdom', uri: 'http://regionals.burningman.org/regionals/europe/uk/' },
+    { email: 'bristol@burningman.com', name: 'Bristol, UK', description: 'United Kingdom-South West UK', uri: 'http://regionals.burningman.org/regionals/europe/united-kingdom-bristol/' }
   ];
-  
   
   clearCollection(Communities);
 
-  locations.forEach(function(location, inx, array) { 
+  regionals.forEach(function(location, inx, array) { 
     Meteor.setTimeout(function() {
-      console.log('// Adding community: [%s]', location);
+      console.log('// Adding community: [%s]', location.name);
 
-      geo.geocode(location, function(err, resp) {
+      geo.geocode(location.name, function(err, resp) {
         var geoResponse = resp[0];
-
+      
         if (err) {
           InitializationErrors.geocode.push({
             location: location,
@@ -212,9 +218,11 @@ function seedCommunities() {
             else {
               Communities.insert({
                 name: geoResponse.city || geoResponse.country,
-                description: location + ' burner community',
+                description: location.description || location.name + ' burner community',
                 location: res,
-                contact: 'unknown'
+                contact: 'unknown',
+                regionalContactEmail: location.email,
+                regionalContactUri: location.uri
               }, 
               function(err, res) {
                 if (err) { 

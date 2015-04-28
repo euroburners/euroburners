@@ -40,7 +40,7 @@ Template.map.rendered = function() {
         props.icon = eventMarker
       }
       else if (community) {
-        props.title = community.name, 
+        props.title = community.description, 
         props.icon = communityMarker
       }
       
