@@ -2,7 +2,8 @@
 // collection initialization code
 // =================================================================
 
-var geo = new GeoCoder({geocoderProvider: 'openstreetmap'}),
+var geo = new GeoCoder(),
+    // geo = new GeoCoder({geocoderProvider: 'openstreetmap'}),
     seedEventsComplete = false, 
     seedCommunitiesComplete = false;
 
@@ -30,11 +31,11 @@ Meteor.startup(function() {
         console.log('// ********************************** //');
         logInitializationErrors();
         console.log('// ********************************** //');
-
+    
         Meteor.setTimeout(function() {
           logCollection(Events, Communities, Locations);
           console.log('// ********************************** //');        
-        }, 1000);
+        }, 2000);
       }
     }, 500);
     
@@ -88,30 +89,36 @@ function seedEvents() {
   console.log('// Found %d European burns at the.burn.directory.', burns.length);
   console.log('// ********************************** //');  
 
-  burns.forEach(function(burn, inx) {
-    console.log('// Adding burn event: [%s]', burn.name);
-    
+  burns.forEach(function(burn, inx, array) {
     var next = burn.nextEvent;
 
     if (next && next.lat && next.lng) {
-      geo.reverse(next.lat, next.lng, function(err, resp) {
-        if (err) {
-          InitializationErrors.reverseGeocode.push({
-            event: burn.name,
-            error: err
-          });
-        }
-        else {
-          insertEventLocation(burn, resp[0]);
-        }
-      });
+      Meteor.setTimeout(function() {
+        geo.reverse(next.lat, next.lng, function(err, resp) {
+          if (err) {
+            console.log('// Failure adding burn event: [%s]', burn.name);
+            
+            InitializationErrors.reverseGeocode.push({
+              event: burn.name,
+              error: err
+            });
+          }
+          else {
+            console.log('// Adding burn event: [%s]', burn.name);
+            
+            insertEvent(burn, resp[0]);
+          }
+        });
+
+        seedEventsComplete = inx === array.length -1;
+      }, inx * 500);
     }
   });
   
   seedEventsComplete = true;
 }
 
-function insertEventLocation(burn, geoResponse) {
+function insertEvent(burn, geoResponse) {
   Locations.insert({
     name: burn.name, 
     lat: burn.nextEvent.lat, 
@@ -174,54 +181,55 @@ function seedCommunities() {
   
   clearCollection(Communities);
 
-  locations.forEach(function(location, inx) { 
-    console.log('// Adding community: [%s]', location);
-    
-    geo.geocode(location, function(err, resp) {
-      var geoResponse = resp[0];
+  locations.forEach(function(location, inx, array) { 
+    Meteor.setTimeout(function() {
+      console.log('// Adding community: [%s]', location);
+
+      geo.geocode(location, function(err, resp) {
+        var geoResponse = resp[0];
+
+        if (err) {
+          InitializationErrors.geocode.push({
+            location: location,
+            error: err
+          });
+        }
+        else {
+          Locations.insert({ 
+            name: geoResponse.city || geoResponse.country, 
+            lat: geoResponse.latitude, 
+            lng: geoResponse.longitude,
+            city: geoResponse.city,
+            country: geoResponse.country
+          },     
+          function(err,res) {
+            if (err) { 
+              InitializationErrors.insertCommunityLocation.push({
+                location: location,
+                error: err
+              });
+            }
+            else {
+              Communities.insert({
+                name: geoResponse.city || geoResponse.country,
+                description: location + ' burner community',
+                location: res,
+                contact: 'unknown'
+              }, 
+              function(err, res) {
+                if (err) { 
+                  InitializationErrors.insertCommunity.push({
+                    location: location,
+                    error: err
+                  });
+                }            
+              });
+            }
+          });        
+        }
+      });
       
-      if (err) {
-        InitializationErrors.geocode.push({
-          location: location,
-          error: err
-        });
-      }
-      else {
-        Locations.insert({ 
-          name: geoResponse.city || '-', 
-          lat: geoResponse.latitude, 
-          lng: geoResponse.longitude,
-          city: geoResponse.city,
-          country: geoResponse.country
-        },     
-        function(err,res) {
-          if (err) { 
-            InitializationErrors.insertCommunityLocation.push({
-              location: location,
-              error: err
-            });
-          }
-          else {
-            Communities.insert({
-              name: geoResponse.city || '-',
-              description: location + ' burner community',
-              location: res,
-              contact: 'unknown'
-            }, 
-            function(err, res) {
-              if (err) { 
-                InitializationErrors.insertCommunity.push({
-                  location: location,
-                  error: err
-                });
-              }            
-            });
-          }
-        });        
-      }
-    });    
+      seedCommunitiesComplete = inx === array.length -1;
+    }, inx * 500);
   });
-
-  seedCommunitiesComplete = true;
 }
-
