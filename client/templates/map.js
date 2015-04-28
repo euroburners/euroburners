@@ -36,6 +36,7 @@ Template.map.rendered = function() {
       
       if (burnEvent) {
         props.title = burnEvent.name, 
+        // TODO: differentiate icon based on type of event
         props.icon = eventMarker
       }
       else if (community) {
@@ -43,7 +44,9 @@ Template.map.rendered = function() {
         props.icon = communityMarker
       }
       
-      L.marker(latlng, props).addTo(map);
+      if (burnEvent || community) {
+        L.marker(latlng, props).addTo(map);
+      }
     }
   }); 
 };

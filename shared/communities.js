@@ -2,10 +2,13 @@
 Communities = new Mongo.Collection('communities');
 
 Communities.helpers({
-  location: function() {
+  getLocation: function() {
     return Locations.findOne(this.location);
   },
-  contact: function() {
+  getContact: function() {
     return Persons.findOne(this.contact);
-  }
+  }});
+
+Communities.before.remove(function(userId, doc) {
+  Locations.remove(doc.location);
 });

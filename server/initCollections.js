@@ -26,8 +26,17 @@ Meteor.startup(function() {
       if (seedEventsComplete && seedCommunitiesComplete) {
         Meteor.clearInterval(interval);
         AppSettings.insert({key: 'initDone', value: true});
+        
+        console.log('// ********************************** //');
+        logInitializationErrors();
+        console.log('// ********************************** //');
+
+        Meteor.setTimeout(function() {
+          logCollection(Events, Communities, Locations);
+          console.log('// ********************************** //');        
+        }, 1000);
       }
-    }, 1000);
+    }, 500);
     
     seedEvents();
     seedCommunities();
@@ -35,13 +44,24 @@ Meteor.startup(function() {
 });
 
 
+function logInitializationErrors() {
+  Object.keys(InitializationErrors).forEach(function(key) {
+    console.log('// InitializationErrors.%s', key, InitializationErrors[key]);
+  });
+}
+
+function logCollection() {
+  _.each(arguments, function(collection) {
+    console.log('// Collection %s updated: (%d records)', collection._name, collection.find().count());
+  });
+}
+
 function clearCollection(collection) {
   console.log('// ********************************** //');
   console.log('// Clearing collection %s (%d records)', collection._name, collection.find().count());
   console.log('// ********************************** //');
   
   collection.find().forEach(function(item) {
-    Locations.remove({location: item.location});
     collection.remove(item._id);
   });  
 }

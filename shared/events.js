@@ -1,20 +1,6 @@
 // initialize collection
 Events = new Mongo.Collection('events');
 
-// "name"
-// "description"
-// "startDateTime"
-// "endDateTime"
-// "recurrencePattern"
-// "recurrenceDuration"
-// "location"
-// "contact"
-// "fbEvent"
-// "eventUri"
-// "ticketsOnSale"
-// "ticketUri"
-// "uris"
-
 Events.helpers({
   getLocation: function() {
     return Locations.findOne(this.location);
@@ -22,4 +8,8 @@ Events.helpers({
   getContact: function() {
     return Persons.findOne(this.contact);
   }
+});
+
+Events.before.remove(function(userId, doc) {
+  Locations.remove(doc.location);
 });
