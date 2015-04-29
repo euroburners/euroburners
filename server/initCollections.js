@@ -176,7 +176,7 @@ function seedCommunities() {
     { email: 'israel@burningman.com', name: 'Israel', description: 'MIDBURN - Israel', uri: 'http://regionals.burningman.org/regionals/europe/israel/' },
     { email: 'netherlands@burningman.com', name: 'Netherlands', uri: 'http://regionals.burningman.org/regionals/europe/netherlands/' },
     { email: 'poland@burningman.com', name: 'Poland', uri: 'http://regionals.burningman.org/regionals/europe/poland/' },
-    { email: 'russia@burningman.com', name: 'Russia', uri: 'http://regionals.burningman.org/regionals/europe/russia/' },
+    { email: 'russia@burningman.com', name: 'Moscow', description: 'Russian Burners', uri: 'http://regionals.burningman.org/regionals/europe/russia/' },
     { email: 'spain@burningman.com', name: 'Spain', uri: 'http://regionals.burningman.org/regionals/europe/spain/' },
     { email: 'barcelona@burningman.com', name: 'Barcelona', description: 'Barcelona Burning Man Community', uri: 'http://regionals.burningman.org/regionals/europe/spain-barcelona/' },
     { email: 'sweden@burningman.com', name: 'Sweden', uri: 'http://regionals.burningman.org/regionals/europe/sweden/' },
