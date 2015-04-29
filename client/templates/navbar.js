@@ -13,6 +13,8 @@ Template.navbar.events({
         communities: Communities.textSearch(query),
         events: Events.textSearch(query)
       });
+      
+      $('#searchResults').show(500);
     }
     else {
       Session.set('searchResults', null);
