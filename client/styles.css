@@ -28,11 +28,15 @@ input {
   opacity: 1;
 }
 
-input#search  {
+label {
   float: right;
+  text-align: right;
+  width: 35%;
+}
+input#search  {
+  width: 70%;
   margin: 3px;
   padding: 0 5px;
-  width: 25%;
   border: 1px solid #ccc;
   border-radius: 3px;
   line-height: 1.5em;
@@ -73,7 +77,12 @@ input#search  {
   padding: 3px;
 }
 #searchResults .result {
-  margin-left: 1em;
+  margin: 3px 1em;
+  padding: 5px;
+  cursor: pointer;
+}
+#searchResults .result:hover {
+  background-color: #ccc;
 }
 #searchResults .event.result {}
 #searchResults .community.result {}

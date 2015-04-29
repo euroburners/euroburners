@@ -18,5 +18,14 @@ Template.searchResults.events({
   'mouseenter #searchResults': function(event, template) {
     Meteor.clearTimeout(hideTimeout);
     hideTimeout = null;
+  }  , 
+
+  'mouseenter .result': function(event, template) {
+    // mapMarkers[this.location]  
+  }, 
+
+  'mouseleave .result': function(event, template) {
+    // mapMarkers[this.location]
   }
 });
+

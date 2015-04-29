@@ -1,5 +1,7 @@
 // REF: Leaflet documentation: http://leafletjs.com/reference.html
 
+mapMarkers = {};
+
 Template.map.rendered = function() {
   L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images';
 
@@ -45,7 +47,7 @@ Template.map.rendered = function() {
       }
       
       if (burnEvent || community) {
-        L.marker(latlng, props).addTo(map);
+        mapMarkers[doc._id] = L.marker(latlng, props).addTo(map);
       }
     }
   }); 

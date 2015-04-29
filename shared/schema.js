@@ -128,7 +128,6 @@ Schemas.Community = new SimpleSchema({
 //   - recurrence only allowed to extend for 1 year max (52 weekly events / 12 monthly events)
 // ============================================
 // TODO: add burn type selection : String/required/allowedValues (determine allowed values)
-// TODO: add submitterName : String/optional (required if not logged in)
 // TODO: add submitterEmail : String/optional (required if not logged in)
 // TODO: add approved : String/optional (required if not logged in)
 // ============================================

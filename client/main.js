@@ -8,4 +8,8 @@ Meteor.subscribe('labeledUris');
 
 Meteor.startup(function() {
   Session.set('searchResults', null);
-})
+});
+
+Template.registerHelper('formatDate', function(date, formatString) {
+  return Intl.DateTimeFormat('en-GB').format(date);
+});
