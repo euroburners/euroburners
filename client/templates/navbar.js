@@ -8,8 +8,14 @@ Template.navbar.events({
     var query = event.currentTarget.value;
 
     if (query.length > 1) {
-      console.log(Events.textSearch(query));
-      console.log(Communities.textSearch(query));
+      Session.set('searchResults', {
+        query: query,
+        communities: Communities.textSearch(query),
+        events: Events.textSearch(query)
+      });
+    }
+    else {
+      Session.set('searchResults', null);
     }
   }
 });

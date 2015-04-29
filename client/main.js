@@ -5,3 +5,7 @@ Meteor.subscribe('markers');
 Meteor.subscribe('communities');
 Meteor.subscribe('locations');
 Meteor.subscribe('labeledUris');
+
+Meteor.startup(function() {
+  Session.set('searchResults', null);
+})

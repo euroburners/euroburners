@@ -1,0 +1,35 @@
+<template name="searchResults">
+  <div id="searchResults">
+    <div>
+    {{#if searchResults}}
+      {{#if searchResults.events}}
+      <div class='header'>Upcoming Events</div>
+      {{#each searchResults.events}}
+      {{>eventResult}}
+      {{/each}}
+      {{/if}}
+      
+      {{#if searchResults.communities}}
+      <div class='header'>Local Burner Communities</div>
+      {{#each searchResults.communities}}
+      {{>communityResult}}
+      {{/each}}
+      {{/if}}
+    {{else}}
+      Nothing found! 
+    {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="eventResult">
+  <div class="event result">
+    {{name}}
+  </div>
+</template>
+
+<template name="communityResult">
+  <div class="community result">
+    {{description}}
+  </div>
+</template>

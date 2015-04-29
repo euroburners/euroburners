@@ -14,13 +14,16 @@ Communities.before.remove(function(userId, doc) {
 });
 
 Communities.textSearch = function(query) {
-  return this.find().fetch().filter(function(item) {
-    var location = item.getLocation(); 
+  return this
+    .find({}, {sort: {name: 1}})
+    .fetch()
+    .filter(function(item) {
+      var location = item.getLocation(); 
     
-    return (item.name && item.name.contains(query))
-        || (item.description && item.description.contains(query))
-        || (location.name && location.name.contains(query))
-        || (location.city && location.city.contains(query))
-        || (location.country && location.country.contains(query));
-  });
+      return (item.name && item.name.contains(query))
+          || (item.description && item.description.contains(query))
+          || (location.name && location.name.contains(query))
+          || (location.city && location.city.contains(query))
+          || (location.country && location.country.contains(query));
+    });
 };

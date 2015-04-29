@@ -3,7 +3,9 @@ html, body {
   padding: 0;
 }
 
-body {
+body, 
+input {
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .map {
@@ -20,7 +22,6 @@ body {
   background-color: white;
   vertical-align: middle;
   line-height: 2em;
-  font-family: Helvetica, Arial, sans-serif;
   color: #333;
 }
 #navbar:hover {
@@ -43,7 +44,6 @@ input#search  {
   display: inline-block;
   width: 15%;
   text-align: center;
-/*  padding: 0px 4px;*/
   cursor: pointer;
 }
 .nav-item:hover, 
@@ -51,6 +51,33 @@ input#search  {
   color: black;
   background-color: #ccc;
 }
+
+#searchResults {
+  display: inline-block;
+  position: absolute;
+  top: 2em;
+  right: 0;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 2px;
+  padding: 5px;
+  background-color: white;
+  opacity: 0.8;
+}
+#searchResults .header {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-weight: bolder;
+  background-color: #ccc;
+  padding: 3px;
+}
+#searchResults .result {
+  margin-left: 1em;
+}
+#searchResults .event.result {}
+#searchResults .community.result {}
+
 
 /* styles for iPhone/Android landscape (and really narrow browser windows) */
 @media all and (max-width: 480px) {}
