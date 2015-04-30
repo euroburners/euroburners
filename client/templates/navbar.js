@@ -15,9 +15,11 @@ Template.navbar.events({
       });
       
       $('#searchResults').show(500);
+      Session.set('activeContainer', '#searchResults');
     }
     else {
       Session.set('searchResults', null);
+      Session.set('activeContainer', null);
     }
   }
 });

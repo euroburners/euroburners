@@ -2,6 +2,18 @@
 
 mapMarkers = {};
 
+Template.map.events({
+  'click': function() {
+    var activeContainer = Session.get('activeContainer');
+    
+    if (activeContainer) {
+      $(activeContainer).hide(500);
+    }
+    
+    $('#search').val('');
+  }
+});
+
 Template.map.rendered = function() {
   L.Icon.Default.imagePath = 'packages/bevanhunt_leaflet/images';
 
@@ -25,6 +37,9 @@ Template.map.rendered = function() {
   });
   
   map.setView([49, 9], 5);
+  
+  // we can use this to zoom to current location (use on mobile devices?)
+  // map.locate({setView: true, maxZoom: 11});
 
   // set tile provider (REF: http://leaflet-extras.github.io/leaflet-providers/preview/)
   L.tileLayer.provider('Acetate.all').addTo(map);

@@ -1,10 +1,14 @@
 <template name="eventResult">
   <div class="event result">
     <div>{{name}} - {{formatDate startDateTime}} - {{formatDate endDateTime}}</div>
-    <div>{{location.city}} {{location.country}}</div>
+    <div>
+      {{#if location.city}}
+      {{location.city}}, 
+      {{/if}}
+      {{location.country}}
+    </div>
   </div>
 </template>
-
 
 <!--
 name
