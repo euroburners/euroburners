@@ -1,15 +1,16 @@
 <template name="navbar">
   <div id="navbar">
-    <label>
+    <label id="search">
       Search
-      <input type="text" id="search" placeholder="Name, location, city, country">
+      <input type="text" placeholder="Name, location, city, country">
     </label>
+    
+    <ul id="nav-menu">
+      <li class="nav-item" id="nav-events">Events</li>   
+      <li class="nav-item" id="nav-groups">Groups</li>     
+      <li class="nav-item" id="nav-cal">Calendar</li>
+    </ul>
 
-    <!--
-    <div id="nav-events" class="nav-item">Events</div>   
-    <div id="nav-groups" class="nav-item">Groups</div>     
-    <div id="nav-cal" class="nav-item">Calendar</div>
-    -->
-
+    <i id="navicon" class="fa fa-lg fa-navicon"></i>
   </div>
 </template>

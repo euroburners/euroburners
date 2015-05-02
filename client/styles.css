@@ -26,14 +26,15 @@ input {
 }
 #navbar:hover {
   opacity: 1;
+  color: black;
 }
 
-label {
+label#search {
   float: right;
   text-align: right;
   width: 35%;
 }
-input#search  {
+label#search input  {
   width: 70%;
   margin: 3px;
   padding: 0 5px;
@@ -44,17 +45,34 @@ input#search  {
   outline: none;
 }
 
+#nav-menu {
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0em;
+  padding-left: 0;
+  line-height: 2em;
+}
+
 .nav-item {
   display: inline-block;
-  width: 15%;
-  text-align: center;
+  list-style-type: none;
   cursor: pointer;
+  width: 100px;
 }
 .nav-item:hover, 
 .nav-item.selected {
   color: black;
   background-color: #ccc;
 }
+
+#navicon {
+  display: none;
+}
+
 
 #searchResults {
   display: none;
@@ -89,9 +107,64 @@ input#search  {
 #searchResults .community.result {}
 
 
+
 /* styles for iPhone/Android landscape (and really narrow browser windows) */
-@media all and (max-width: 480px) {}
+@media all and (max-width: 480px) {
+  label#search {
+    width: 80%;
+  }
+  
+  #searchResults {
+    width: 95%;
+  }
+  
+  #navicon {
+    display: inline-block;
+    margin-left: 6px;
+    margin-top: 6px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  #nav-menu {
+    display: none;
+    top: 2.5em;
+    left: 0;
+    text-align: left;
+    vertical-align: middle;
+    margin: 0em;
+    padding-left: 0;
+    line-height: 2em;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .nav-item {
+    display: block;
+    padding-left: 1em;
+  }
+}
+  
 /* styles for iPhone/Android portrait */
-@media all and (max-width: 320px) {}
+/*
+@media all and (max-width: 320px) {
+  label#search {
+    width: 80%;
+  }
+
+  #searchResults {
+    width: 100%;
+  }
+
+  #navicon {
+    display: inline;
+    margin-left: 6px;
+  }
+}*/
+
+  
 /* styles for smaller devices */
 @media all and (max-width: 240px) {}

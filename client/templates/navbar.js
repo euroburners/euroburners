@@ -4,7 +4,7 @@ Template.navbar.events({
     event.currentTarget.classList.add('selected');
   }, 
   
-  'keyup #search': function(event, template) {
+  'keyup #search input': function(event, template) {
     var query = event.currentTarget.value;
 
     if (query.length > 1) {
@@ -21,5 +21,9 @@ Template.navbar.events({
       Session.set('searchResults', null);
       Session.set('activeContainer', null);
     }
+  }, 
+  
+  'click #navicon': function(event, template) {
+    $('#nav-menu').css('display', 'block');
   }
 });
