@@ -25,5 +25,15 @@ Template.navbar.events({
   
   'click #navicon': function(event, template) {
     $('#nav-menu').css('display', 'block');
+  },
+  
+  'click #nav-cal-map': function(event, template) {
+    var target = event.currentTarget, 
+        newActivePanelSelector = '#' + target.innerText.toLowerCase();
+    
+    target.innerText = ('#map' === newActivePanelSelector) ? 'Calendar' : 'Map';
+    
+    $('.active-panel').removeClass('active-panel');
+    $(newActivePanelSelector).addClass('active-panel');
   }
 });
