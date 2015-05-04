@@ -15,8 +15,6 @@ Template.calendar.rendered = function() {
     
     // populate events 
     events: function(start, end, timezone, callback) {
-      console.log(start, end, timezone, callback);
-      
       var events = Events.find().fetch().map(function(event) {
         return {
           title: event.name,
