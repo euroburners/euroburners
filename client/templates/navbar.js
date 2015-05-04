@@ -29,11 +29,16 @@ Template.navbar.events({
   
   'click #nav-cal-map': function(event, template) {
     var target = event.currentTarget, 
-        newActivePanelSelector = '#' + target.innerText.toLowerCase();
+        targetText = target.innerText,
+        newActivePanelSelector = '#' + targetText.toLowerCase();
     
-    target.innerText = ('#map' === newActivePanelSelector) ? 'Calendar' : 'Map';
+    target.innerText = ('Map' === targetText) ? 'Calendar' : 'Map';
     
     $('.active-panel').removeClass('active-panel');
     $(newActivePanelSelector).addClass('active-panel');
+    
+    if ('Calendar' === targetText) {
+      $('#calendar').fullCalendar('render');
+    }
   }
 });

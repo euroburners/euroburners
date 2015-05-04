@@ -20,13 +20,20 @@ input {
   color: black;
 }
 
-#map,
-#calendar {
+#map {
   display: none;
   position: absolute;
   top: 32px;
   width: 100%;
   height: 100%;
+}
+
+#calendar {
+  display: none;
+  position: absolute;
+  top: 40px;
+  width: 100%;
+/*  height: 95%;*/
 }
 
 .active-panel {
