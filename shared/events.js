@@ -7,6 +7,9 @@ Events.helpers({
   },
   getContact: function() {
     return Persons.findOne(this.contact);
+  }, 
+  isInPast: function() {
+    return this.endDateTime < new Date();
   }
 });
 

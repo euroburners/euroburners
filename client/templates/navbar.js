@@ -25,7 +25,7 @@ Template.navbar.events({
   }, 
   
   'click #navicon': function(event, template) {
-    $('#nav-menu').css('display', 'block');
+    $('#nav-menu').show();
   },
   
   'click #nav-cal-map': function(event, template) {
@@ -37,6 +37,7 @@ Template.navbar.events({
     
     $('.active-panel').removeClass('active-panel');
     $('.active-result').hide();
+    $('#nav-menu').hide();
     $(newActivePanelSelector).addClass('active-panel');
     
     if ('Calendar' === targetText) {

@@ -25,7 +25,7 @@ Template.calendar.rendered = function() {
         
         // TODO: icon for event type (weekend, regional, decompression, regular)
         //       - assemble all classes as array, then assign to .className with [].join(' ');
-        if (event.startDateTime < new Date()) {
+        if (event.isInPast()) {
           options.className = 'past';
         }
         
