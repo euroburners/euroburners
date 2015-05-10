@@ -26,3 +26,29 @@ Meteor.startup(function() {
 Template.registerHelper('formatDate', function(date, formatString) {
   return Intl.DateTimeFormat('en-GB').format(date);
 });
+
+Template.registerHelper('formattedDates', function(start, end) {
+  var startDate = new moment(start), 
+      endDate = new moment(end),
+      dateString, 
+      months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+  // different years (ex: New Year's Eve event)
+  if (startDate.year() != endDate.year()) {
+    dateString = startDate.date() + ' ' + months[startDate.month()] + ', ' + startDate.year() + ' - ' + endDate.date() + ' ' + months[endDate.month()] + ', ' + endDate.year();
+  }
+  // same date (ex: regular gathering, decom)
+  else if (startDate.date() === endDate.date() && startDate.month() === endDate.month()) {
+    dateString = startDate.date() + ' ' + months[startDate.month()] + ', ' + startDate.year();
+  }
+  // same month (ex: weekend, regional)
+  else if (startDate.month() === endDate.month()) {
+    dateString = startDate.date() + '-' + endDate.date() + ' ' + months[startDate.month()] + ', ' + startDate.year();
+  }
+  // different months (ex: weekend / regional that spans a month boundary)
+  else {
+    dateString = startDate.date() + ' ' + months[startDate.month()] + ' - ' + endDate.date() + ' ' + months[endDate.month()] + ', ' + startDate.year();
+  }
+  
+  return dateString;
+});

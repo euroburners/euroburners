@@ -14,6 +14,7 @@ Template.navbar.events({
         events: Events.textSearch(query)
       });
       
+      $('#searchResults').addClass('active-result');
       $('#searchResults').show(500);
       Session.set('activeContainer', '#searchResults');
     }
@@ -35,10 +36,11 @@ Template.navbar.events({
     target.innerText = ('Map' === targetText) ? 'Calendar' : 'Map';
     
     $('.active-panel').removeClass('active-panel');
+    $('.active-result').hide();
     $(newActivePanelSelector).addClass('active-panel');
     
     if ('Calendar' === targetText) {
-      $('#calendar').fullCalendar('render');
+      $('#calendarContainer').fullCalendar('render');
     }
   }
 });

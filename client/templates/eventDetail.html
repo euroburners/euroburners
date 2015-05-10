@@ -1,0 +1,54 @@
+<template name="eventDetail">
+  <div id="eventDetail">
+    {{#with selectedEvent}}
+      <div class="eventNameAndDate">
+        <span class="name">{{name}}:</span>
+        <span class="formattedDates">{{formattedDates startDateTime endDateTime}}</span>
+      </div>
+      
+      {{#if isInPast endDateTime}} 
+      <div class="eventIsInPast">(This event is in the past)</div>
+      {{/if}}
+
+      <!-- TODO: recurrence -->
+      <div class="eventDescription">{{description}}</div>
+
+      {{#with getLocation}}
+      <div class="eventLocation">Location: {{city}}, {{country}}</div>
+      {{/with}}
+
+      {{#with getContact}}
+      <div class="eventContact">Contact: {{name}}</div>
+      {{/with}}
+      
+      {{#if fbEvent}}
+      <div class="eventFbEvent">
+        <a href="{{fbEvent}}">Facebook Event</a>
+      </div>
+      {{/if}}
+      
+      {{#if eventUri}}
+      <div class="eventUri">
+        <a href="{{eventUri}}">Website</a>
+      </div>
+      {{/if}}
+    {{/with}}
+  </div>
+</template>
+
+<!--
+  name: String,
+  description: String,
+  startDateTime: Date,
+  endDateTime: Date,
+  recurrencePattern: Number,
+  recurrenceDuration: Number,
+  location: String, // id corresponding to Location collection
+  contact: String, // id corresponding to Person collection
+  submitterName: String,
+  fbEvent: String,
+  eventUri: String,
+  ticketsOnSale: Boolean, 
+  ticketUri: String,
+  uris: [String]
+-->
