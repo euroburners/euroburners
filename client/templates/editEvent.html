@@ -1,0 +1,44 @@
+<template name="editEvent">
+  <div id="editEvent">
+    {{#with selectedEvent}}
+    <label>
+      <span>Name</span>
+      <input type="text" value="{{name}}">
+    </label>
+    
+    <label>
+      <span>Description</span>
+      <textarea>{{description}}</textarea>
+    </label>
+    
+    <label>
+      <span>Start Date</span>
+      <input type="datetime" value="{{startDateTime}}">
+    </label>
+    
+    <label>
+      <span>End Date</span>
+      <input type="datetime" value="{{endDateTime}}">
+    </label>
+    
+    <label>
+      <span>Facebook event</span>
+      <input type="text" value="{{fbEvent}}">
+    </label>
+    
+    <label>
+      <span>Website</span>
+      <input type="text" value="{{eventUri}}">
+    </label>
+    
+    <label>
+      <span>Submitted by</span>
+      <input type="text" value="{{submitterName}}" readonly>
+    </label>
+    
+  <!-- 
+    location: "jTRT5uzdP2XwCojH9"
+  --> 
+    {{/with}}
+  </div>
+</template>

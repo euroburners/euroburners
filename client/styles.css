@@ -98,6 +98,30 @@ label#search input  {
   font-style: italic;
 }
 
+/* ***** event editing ***** */
+#editEvent {
+  width: 800px;
+  margin: 10px auto;
+}
+#editEvent > label {
+  display: block;
+  margin-bottom: 5px;
+}
+#editEvent > label > span {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+  text-align: right;
+}
+#editEvent > label > span::after {
+  content: ':';
+}
+#editEvent > label > input, 
+#editEvent > label > textarea {
+  width: 60%;
+  font-size: 1em;
+}
+
 /* ***** search results ***** */
 #searchResults {
   display: none;

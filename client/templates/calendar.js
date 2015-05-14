@@ -5,10 +5,6 @@
 //     console.log(ev.name, ev.startDateTime); 
 //   });
 
-Tracker.autorun(function() {
-  
-});
-
 Template.calendar.rendered = function() {
   // initialize calendar view
   $('#calendar').fullCalendar({
@@ -42,9 +38,11 @@ Template.calendar.rendered = function() {
     },
     
     eventClick: function(event) {
-      Session.set('selectedEventId',  event.id);
+      Session.set('selectedEvent', Events.findOne(event.id));
       $('#eventDetail').addClass('active-result');
-      $('#eventDetail').show();
+      $('#eventDetail').show(500);
+      // $('#eventDetail.modal').modal('show');
+      
     }
   });
 };

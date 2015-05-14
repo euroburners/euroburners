@@ -32,6 +32,12 @@
         <a href="{{eventUri}}">Website</a>
       </div>
       {{/if}}
+      
+      {{#if canEdit}}
+      <div class="eventEditLink">
+        <a href="#">Edit this event</a>
+      </div>
+      {{/if}}
     {{/with}}
   </div>
 </template>

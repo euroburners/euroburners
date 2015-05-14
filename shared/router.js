@@ -27,6 +27,13 @@ FlowRouter.route('/events', {
   }  
 });
 
+/* ***** route: events editing ***** */ 
+FlowRouter.route('/events/:id/edit', {
+  action: function(params) {
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'editEvent'});
+  }  
+});
+
 /* ***** route: communities ***** */ 
 FlowRouter.route('/communities', {
   action: function(params) {
