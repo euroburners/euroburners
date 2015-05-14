@@ -15,3 +15,6 @@ matb33:collection-hooks
 http
 rzymek:fullcalendar
 momentjs:moment
+meteorhacks:flow-router
+semantic:ui
+meteorhacks:flow-layout

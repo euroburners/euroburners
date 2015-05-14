@@ -5,9 +5,15 @@
 //     console.log(ev.name, ev.startDateTime); 
 //   });
 
+Tracker.autorun(function() {
+  
+});
+
 Template.calendar.rendered = function() {
   // initialize calendar view
-  $('#calendarContainer').fullCalendar({
+  $('#calendar').fullCalendar({
+    height: screen.availHeight - 30,
+    
     header: {
       left: '',
       center: 'title'

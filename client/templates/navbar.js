@@ -30,18 +30,17 @@ Template.navbar.events({
   
   'click #nav-cal-map': function(event, template) {
     var target = event.currentTarget, 
-        targetText = target.innerText,
-        newActivePanelSelector = '#' + targetText.toLowerCase();
+        targetText = target.innerText;
     
     target.innerText = ('Map' === targetText) ? 'Calendar' : 'Map';
     
-    $('.active-panel').removeClass('active-panel');
-    $('.active-result').hide();
-    $('#nav-menu').hide();
-    $(newActivePanelSelector).addClass('active-panel');
+    FlowRouter.go('/' + targetText.toLowerCase());
     
-    if ('Calendar' === targetText) {
-      $('#calendarContainer').fullCalendar('render');
-    }
+    // TODO: conditional based on screen width / device check 
+    // $('#nav-menu').hide();
+  },
+
+  'click #nav-resources': function(event, template) {
+    FlowRouter.go('/resources');
   }
 });

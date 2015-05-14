@@ -66,5 +66,8 @@ Template.map.rendered = function() {
       }
     }
   }); 
+  
+  var navbar = document.getElementById('navbar');
+  $('#map').css('height', (screen.availHeight - navbar.offsetHeight) + "px");
 };
 
