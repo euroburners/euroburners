@@ -18,10 +18,19 @@ input {
 #navbar:hover {
   color: black;
 }
+#layout-map #navbar {
+  position: absolute;
+  top: 0;
+  opacity: 0.8;
+}
 
 
 /* ***** map styles styles ***** */
-#map {}
+#map {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
 
 /* ***** calendar / event styles ***** */
 #calendar {
@@ -105,7 +114,7 @@ label#search input  {
 }
 #editEvent > label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 #editEvent > label > span {
   display: inline-block;
@@ -116,7 +125,7 @@ label#search input  {
 #editEvent > label > span::after {
   content: ':';
 }
-#editEvent > label > input, 
+#editEvent > label > input[type=text], 
 #editEvent > label > textarea {
   width: 60%;
   font-size: 1em;

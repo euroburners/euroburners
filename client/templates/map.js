@@ -67,7 +67,10 @@ Template.map.rendered = function() {
     }
   }); 
   
-  var navbar = document.getElementById('navbar');
-  $('#map').css('height', (screen.availHeight - navbar.offsetHeight) + "px");
+  // var navbar = document.getElementById('navbar');
+  // $('#map').css('height', (screen.availHeight - navbar.offsetHeight) + "px");
+  $('#map')
+    .css('height', '100%')
+    .css('position', 'absolute');
 };
 

@@ -1,7 +1,7 @@
-/* ***** route: home ***** */ 
+/* ***** route: home / map ***** */ 
 FlowRouter.route('/', {
   action: function(params) {
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'map'});
+    FlowLayout.render('layout-map', {map: 'map', nav: 'navbar'});
   }  
 });
 
@@ -16,7 +16,8 @@ FlowRouter.route('/calendar', {
 /* ***** route: map ***** */ 
 FlowRouter.route('/map', {
   action: function(params) {
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'map'});
+    FlowRouter.redirect('/');
+    // FlowLayout.render('layout-main', {nav: 'navbar', main: 'map'});
   }  
 });
 
