@@ -14,8 +14,11 @@ Events.helpers({
 });
 
 Events.textSearch = function(query) {
+  var today = new Date(); 
+  today.setHours(0, 0, 0);
+  
   return this
-    .find({}, {sort: {startDateTime: 1}})
+    .find({startDateTime: {$gt: today}}, {sort: {startDateTime: 1}})
     .fetch()
     .filter(function(item) {
       var location = item.getLocation(); 
