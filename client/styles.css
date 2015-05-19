@@ -32,7 +32,8 @@ input {
   width: 100%;
 }
 
-/* ***** calendar / event styles ***** */
+
+/* ***** calendar styles ***** */
 #calendar {
   margin: 10px;
   overflow: scroll;
@@ -40,6 +41,24 @@ input {
 .past {
   background-color: gray;
 }
+
+
+/* ***** event styles ***** */
+#events {
+  margin: 10px;
+}
+
+/* ***** community styles ***** */
+#communities {
+  margin: 10px;
+}
+
+/* ***** resources styles ***** */
+#resources {
+  margin: 10px;
+}
+
+
 
 label#search {
   float: right;

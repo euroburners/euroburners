@@ -45,7 +45,7 @@ FlowRouter.route('/events/:id/edit', {
 });
 
 /* ***** route: communities ***** */ 
-FlowRouter.route('/communities', {
+FlowRouter.route('/groups', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'communities'});
     setSelectedNavigationTab('#nav-groups');
