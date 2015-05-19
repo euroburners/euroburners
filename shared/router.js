@@ -1,7 +1,14 @@
+var setSelectedNavigationTab = function(selector) {
+  $('.nav-item.selected').removeClass('selected');
+  $(selector).addClass('selected');
+}
+
+
 /* ***** route: home / map ***** */ 
 FlowRouter.route('/', {
   action: function(params) {
     FlowLayout.render('layout-map', {map: 'map', nav: 'navbar'});
+    setSelectedNavigationTab('#nav-map');
   }  
 });
 
@@ -10,6 +17,7 @@ FlowRouter.route('/calendar', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'calendar'});
     $('#calendar').fullCalendar('render');
+    setSelectedNavigationTab('#nav-calendar');
   }  
 });
 
@@ -17,7 +25,6 @@ FlowRouter.route('/calendar', {
 FlowRouter.route('/map', {
   action: function(params) {
     FlowRouter.redirect('/');
-    // FlowLayout.render('layout-main', {nav: 'navbar', main: 'map'});
   }  
 });
 
@@ -25,6 +32,7 @@ FlowRouter.route('/map', {
 FlowRouter.route('/events', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'events'});
+    setSelectedNavigationTab('#nav-events');
   }  
 });
 
@@ -32,6 +40,7 @@ FlowRouter.route('/events', {
 FlowRouter.route('/events/:id/edit', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'editEvent'});
+    setSelectedNavigationTab('#nav-events');
   }  
 });
 
@@ -39,6 +48,7 @@ FlowRouter.route('/events/:id/edit', {
 FlowRouter.route('/communities', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'communities'});
+    setSelectedNavigationTab('#nav-groups');
   }  
 });
 
@@ -46,6 +56,7 @@ FlowRouter.route('/communities', {
 FlowRouter.route('/resources', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'resources'});
+    setSelectedNavigationTab('#nav-resources');
   }  
 });
 

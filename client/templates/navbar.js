@@ -28,19 +28,10 @@ Template.navbar.events({
     $('#nav-menu').show();
   },
   
-  'click #nav-cal-map': function(event, template) {
-    var target = event.currentTarget, 
-        targetText = target.innerText;
-    
-    target.innerText = ('Map' === targetText) ? 'Calendar' : 'Map';
-    
-    FlowRouter.go('/' + targetText.toLowerCase());
+  'click .nav-item': function(event, template) {
+    FlowRouter.go('/' + event.currentTarget.innerText.toLowerCase());
     
     // TODO: conditional based on screen width / device check 
     // $('#nav-menu').hide();
-  },
-
-  'click #nav-resources': function(event, template) {
-    FlowRouter.go('/resources');
   }
 });

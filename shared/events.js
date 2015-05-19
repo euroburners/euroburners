@@ -14,7 +14,7 @@ Events.helpers({
 });
 
 Events.textSearch = function(query) {
-  var today = new Date(); 
+  var today = new Date();
   today.setHours(0, 0, 0);
   
   return this
