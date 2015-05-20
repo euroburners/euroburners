@@ -8,7 +8,7 @@ Template.eventDetail.helpers({
   
   canEdit: function() {
     // TODO: implement security for editing (role-based?)
-    return true;
+    return false;
   }
 });
 
