@@ -106,16 +106,6 @@ label#search input  {
 /* ***** event details ***** */
 #eventDetail {
   display: none;
-  position: absolute;
-  z-index: 10;
-  top: 2em;
-  right: 0;
-  width: 50%;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-top: 2px;
-  padding: 5px;
-  background-color: white;
 }
 #eventDetail .eventNameAndDate .name {
   font-weight: bold;

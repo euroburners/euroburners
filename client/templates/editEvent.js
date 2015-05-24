@@ -2,8 +2,7 @@ var selectedEvent = null;
 
 Template.editEvent.helpers({
   selectedEvent: function() {
-    selectedEvent = Session.get('selectedEvent');     
-    console.log(selectedEvent);
+    selectedEvent = Events.findOne(Session.get('selectedEventId')); 
     return selectedEvent;
   }
 });

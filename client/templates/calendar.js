@@ -38,11 +38,10 @@ Template.calendar.rendered = function() {
     },
     
     eventClick: function(event) {
-      Session.set('selectedEvent', Events.findOne(event.id));
-      $('#eventDetail').addClass('active-result');
-      $('#eventDetail').show(500);
-      // $('#eventDetail.modal').modal('show');
-      
+      Session.set('selectedEventId', event.id);
+      $('#eventDetail.modal')
+        .modal({detachable: false})
+        .modal('show');
     }
   });
 };

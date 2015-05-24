@@ -2,7 +2,7 @@ var selectedEvent = null;
 
 Template.eventDetail.helpers({
   selectedEvent: function() {
-    selectedEvent = Session.get('selectedEvent');     
+    selectedEvent = Events.findOne(Session.get('selectedEventId'));
     return selectedEvent;
   },
   
@@ -14,9 +14,8 @@ Template.eventDetail.helpers({
 
 Template.eventDetail.events({
   'click .eventEditLink': function(event, template) {
-    $('#eventDetail').removeClass('active-result');
-    $('#eventDetail').hide();
-    
+    $(template.firstNode).modal('hide');
+
     FlowRouter.go('/events/' + selectedEvent._id + '/edit');
   }
 });

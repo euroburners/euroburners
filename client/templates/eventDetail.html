@@ -1,5 +1,5 @@
 <template name="eventDetail">
-  <div id="eventDetail">
+  <div id="eventDetail" class="ui small modal">
     {{#with selectedEvent}}
       <div class="eventNameAndDate">
         <span class="name">{{name}}:</span>
@@ -23,13 +23,13 @@
       
       {{#if fbEvent}}
       <div class="eventFbEvent">
-        <a href="{{fbEvent}}">Facebook Event</a>
+        <a href="{{fbEvent}}" target="_blank">Facebook Event</a>
       </div>
       {{/if}}
       
       {{#if eventUri}}
       <div class="eventUri">
-        <a href="{{eventUri}}">Website</a>
+        <a href="{{eventUri}}" target="_blank">Website</a>
       </div>
       {{/if}}
       
