@@ -1,44 +1,50 @@
 <template name="eventDetail">
   <div id="eventDetail" class="ui small modal">
-    {{#with selectedEvent}}
-      <div class="eventNameAndDate">
-        <span class="name">{{name}}:</span>
-        <span class="formattedDates">{{formattedDates startDateTime endDateTime}}</span>
-      </div>
-      
-      {{#if isInPast}} 
-      <div class="eventIsInPast">(This event is in the past)</div>
-      {{/if}}
+    <div id="closeEventDetail">
+      <i class="large remove icon"></i>
+    </div>
+    
+    <div id="eventDetailContent">
+      {{#with selectedEvent}}
+        <div class="eventNameAndDate">
+          <span class="name">{{name}}:</span>
+          <span class="formattedDates">{{formattedDates startDateTime endDateTime}}</span>
+        </div>
 
-      <!-- TODO: recurrence -->
-      <div class="eventDescription">{{description}}</div>
+        {{#if isInPast}} 
+        <div class="eventIsInPast">(This event is in the past)</div>
+        {{/if}}
 
-      {{#with getLocation}}
-      <div class="eventLocation">Location: {{city}}, {{country}}</div>
+        <!-- TODO: recurrence -->
+        <div class="eventDescription">{{description}}</div>
+
+        {{#with getLocation}}
+        <div class="eventLocation">Location: {{city}}, {{country}}</div>
+        {{/with}}
+
+        {{#with getContact}}
+        <div class="eventContact">Contact: {{name}}</div>
+        {{/with}}
+
+        {{#if fbEvent}}
+        <div class="eventFbEvent">
+          <a href="{{fbEvent}}" target="_blank">Facebook Event</a>
+        </div>
+        {{/if}}
+
+        {{#if eventUri}}
+        <div class="eventUri">
+          <a href="{{eventUri}}" target="_blank">Website</a>
+        </div>
+        {{/if}}
+
+        {{#if canEdit}}
+        <div class="eventEditLink">
+          <a href="#">Edit this event</a>
+        </div>
+        {{/if}}
       {{/with}}
-
-      {{#with getContact}}
-      <div class="eventContact">Contact: {{name}}</div>
-      {{/with}}
-      
-      {{#if fbEvent}}
-      <div class="eventFbEvent">
-        <a href="{{fbEvent}}" target="_blank">Facebook Event</a>
-      </div>
-      {{/if}}
-      
-      {{#if eventUri}}
-      <div class="eventUri">
-        <a href="{{eventUri}}" target="_blank">Website</a>
-      </div>
-      {{/if}}
-      
-      {{#if canEdit}}
-      <div class="eventEditLink">
-        <a href="#">Edit this event</a>
-      </div>
-      {{/if}}
-    {{/with}}
+    </div>
   </div>
 </template>
 

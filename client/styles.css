@@ -107,6 +107,16 @@ label#search input  {
 #eventDetail {
   display: none;
 }
+#closeEventDetail {
+  float: right;
+}
+i.remove.icon {
+  cursor: pointer;
+}
+#eventDetailContent {
+  padding: 0 1.5em 1.5em 1.5em;
+  clear: both;
+}
 #eventDetail .eventNameAndDate .name {
   font-weight: bold;
 }

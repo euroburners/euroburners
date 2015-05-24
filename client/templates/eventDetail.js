@@ -17,5 +17,9 @@ Template.eventDetail.events({
     $(template.firstNode).modal('hide');
 
     FlowRouter.go('/events/' + selectedEvent._id + '/edit');
+  },
+  
+  'click #closeEventDetail': function(event, template) {
+    $(template.firstNode).modal('hide');
   }
 });
