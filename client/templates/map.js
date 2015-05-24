@@ -74,16 +74,12 @@ Template.map.rendered = function() {
       
       if (burnEvent || community) {
         mapMarkers[doc._id] = L.marker(latlng, props)
+          .bindPopup(props.label, {
+            closeButton: false, 
+            offset: new L.Point(0, -20)
+          })
           .on('mouseover', function(event) {
-            var options = event.target.options;
-            
-            L.popup({
-                closeButton: false, 
-                offset: new L.Point(0, -20)
-              })
-              .setLatLng(event.latlng)
-              .setContent(options.label)
-              .openOn(map);
+            this.openPopup();
           })
           .on('click', function(event) {
           })
