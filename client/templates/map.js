@@ -1,5 +1,9 @@
 // REF: Leaflet documentation: http://leafletjs.com/reference.html
 
+var activeMarker = null;
+
+// no `var` here so this will be globally accessible (used by search results)
+// TODO: consider inserting into Session instead
 mapMarkers = {};
 
 Template.map.events({
@@ -47,22 +51,43 @@ Template.map.rendered = function() {
   Locations.find().observe({
     added: function (doc) {
       var burnEvent = Events.findOne({location: doc._id}),
-          community = Communities.findOne({location: doc._id})
+          community = Communities.findOne({location: doc._id}),
+          
           latlng = { lat: doc.lat, lng: doc.lng },
-          props = {};
+          props = {
+            riseOnHover: true
+          };
       
       if (burnEvent) {
-        props.title = burnEvent.name, 
+        props.label = burnEvent.name, 
         // TODO: differentiate icon based on type of event
-        props.icon = eventMarker
+        props.icon = eventMarker,
+        props.type = 'event',
+        props.id = burnEvent._id
       }
       else if (community) {
-        props.title = community.description, 
-        props.icon = communityMarker
+        props.label = community.description, 
+        props.icon = communityMarker,
+        props.type = 'community',
+        props.id = community._id
       }
       
       if (burnEvent || community) {
-        mapMarkers[doc._id] = L.marker(latlng, props).addTo(map);
+        mapMarkers[doc._id] = L.marker(latlng, props)
+          .on('mouseover', function(event) {
+            var options = event.target.options;
+            
+            L.popup({
+                closeButton: false, 
+                offset: new L.Point(0, -20)
+              })
+              .setLatLng(event.latlng)
+              .setContent(options.label)
+              .openOn(map);
+          })
+          .on('click', function(event) {
+          })
+          .addTo(map);
       }
     }
   }); 
@@ -71,4 +96,3 @@ Template.map.rendered = function() {
     .css('height', '100%')
     .css('position', 'absolute');
 };
-

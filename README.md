@@ -12,3 +12,6 @@ TODO
 * implement users/roles 
 * notify local / regional contact when an unapproved event is created in their area
 * ability to edit communities 
+* i18n support 
+    * https://atmospherejs.com/tap/i18n
+    * https://atmospherejs.com/tap/i18n-ui
