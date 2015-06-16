@@ -82,6 +82,10 @@ Template.map.rendered = function() {
             this.openPopup();
           })
           .on('click', function(event) {
+            this.closePopup();
+            console.log('TODO: show HUD panel with event or community details');
+            // map.setView(<LatLng> center, <Number> zoom?, <zoom/pan options> options?)
+            console.log('TODO: scroll and zoom map so that event or community is centered in remaining space');
           })
           .addTo(map);
       }

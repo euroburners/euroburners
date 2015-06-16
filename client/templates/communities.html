@@ -1,5 +1,20 @@
 <template name="communities">
  <div id="communities">
-  == communities view coming soon ==
+  {{#each countries}}
+  <div class="countryHeader">{{.}}</div>
+  
+  <ul class="countryCommunityList">
+    {{#each communities .}}
+    <li>
+      <div>{{description}}</div>
+      <div><a href="mailto:{{regionalContactEmail}}">{{regionalContactEmail}}</a></div>
+      <div><a href="{{regionalContactUri}}">{{regionalContactUri}}</a></div>
+      <div><a href="{{fbPage}}">{{fbPage}}</a></div>
+      <div><a href="{{twitter}}">{{twitter}}</a></div>
+    </li>
+    {{/each}}
+  </ul>
+  
+  {{/each}}
  </div>
 </template>

@@ -12,7 +12,7 @@ input {
   width: 100%;
   background-color: white;
   vertical-align: middle;
-  height: 32px;
+  height: 30px;
   color: #333;
 }
 #navbar:hover {
@@ -215,6 +215,7 @@ i.remove.icon {
     margin: 0em;
     padding-left: 0;
     line-height: 2em;
+    height: inherit;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -224,7 +225,28 @@ i.remove.icon {
   .nav-item {
     display: block;
     padding-left: 1em;
+    height: inherit;
   }
+}
+
+/* ***** communities.html ***** */
+
+.countryHeader {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+ul.countryCommunityList {
+    margin: 5px 0;
+    list-style: none;
+    padding-left: 25px;
+}
+
+ul.countryCommunityList li {
+    display: block;
+    border: 1px solid lightgray;
+    margin-bottom: 5px;
+    padding: 8px;
 }
   
 /* styles for iPhone/Android portrait */
