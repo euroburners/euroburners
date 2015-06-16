@@ -52,6 +52,14 @@ FlowRouter.route('/groups', {
   }  
 });
 
+/* ***** route: communities editing ***** */ 
+FlowRouter.route('/groups/:id/edit', {
+  action: function(params) {
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'editCommunity'});
+    setSelectedNavigationTab('#nav-groups');
+  }  
+});
+
 /* ***** route: resources ***** */ 
 FlowRouter.route('/resources', {
   action: function(params) {

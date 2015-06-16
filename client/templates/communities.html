@@ -7,9 +7,9 @@
     {{#each communities .}}
     <li class={{checkContactExists}}>
       {{#if canEdit}}
-      <div class="editCommunity">[Edit]</div>
+      <div class="editCommunity">Edit</div>
       {{/if}}
-      <div class="addContact">[Add Contact]</div>
+      <div class="addContact">Add Contact</div>
       <div>{{description}}</div>
       <div><a href="mailto:{{regionalContactEmail}}">{{regionalContactEmail}}</a></div>
       <div><a href="{{regionalContactUri}}">{{regionalContactUri}}</a></div>

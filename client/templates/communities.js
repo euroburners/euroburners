@@ -4,7 +4,7 @@ var getCommunities = function() {
   _communities = _.map(Communities.find().fetch(), function(community) {
       var location = _.clone(community.getLocation());
 
-      if (location._id) {
+      if (location && location._id) {
         delete location._id;
       }
 
@@ -44,4 +44,12 @@ Template.communities.helpers({
 });
 
 Template.communities.events({
+  'click div.editCommunity': function(event, template) {
+    // console.log('click div.editCommunity', this, event, template);
+    FlowRouter.go('/groups/' + this._id + '/edit');
+  },
+
+  'click div.addContact': function(event, template) {
+    console.log('click div.addContact', this, event, template);
+  }
 });
