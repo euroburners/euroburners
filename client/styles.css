@@ -247,8 +247,18 @@ ul.countryCommunityList li {
     margin-bottom: 5px;
     padding: 8px;
 }
+ul.countryCommunityList li div.addContact {
+  display: none;
+}
 ul.countryCommunityList li.noContact {
   border-color: red;  
+}
+ul.countryCommunityList li.noContact div.addContact,
+ul.countryCommunityList li div.editCommunity {
+  display: inline-block;
+  float: right;
+  font-size: 0.8em;
+  margin-left: 5px;
 }
   
 /* styles for iPhone/Android portrait */

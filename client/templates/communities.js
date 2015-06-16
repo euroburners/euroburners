@@ -35,6 +35,11 @@ Template.communities.helpers({
     if ('unknown' === this.contact) {
       return 'noContact';
     }
+  },
+
+  canEdit: function() {
+    // TODO: implement security for editing (role-based?)
+    return true;
   }
 });
 
