@@ -8,7 +8,6 @@ var getCommunities = function() {
         delete location._id;
       }
 
-      console.log(_.extend(community, location));
       return _.extend(community, location);
     });
 }
@@ -30,6 +29,12 @@ Template.communities.helpers({
     }; 
     
     return _.uniq(_.pluck(_communities, 'country'));
+  },
+  
+  checkContactExists: function() {
+    if ('unknown' === this.contact) {
+      return 'noContact';
+    }
   }
 });
 

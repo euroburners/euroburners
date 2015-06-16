@@ -241,12 +241,14 @@ ul.countryCommunityList {
     list-style: none;
     padding-left: 25px;
 }
-
 ul.countryCommunityList li {
     display: block;
     border: 1px solid lightgray;
     margin-bottom: 5px;
     padding: 8px;
+}
+ul.countryCommunityList li.noContact {
+  border-color: red;  
 }
   
 /* styles for iPhone/Android portrait */

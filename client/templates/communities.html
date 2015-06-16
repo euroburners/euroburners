@@ -5,7 +5,7 @@
   
   <ul class="countryCommunityList">
     {{#each communities .}}
-    <li>
+    <li class="{{checkContactExists}}">
       <div>{{description}}</div>
       <div><a href="mailto:{{regionalContactEmail}}">{{regionalContactEmail}}</a></div>
       <div><a href="{{regionalContactUri}}">{{regionalContactUri}}</a></div>
