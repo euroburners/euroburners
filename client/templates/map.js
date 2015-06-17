@@ -50,7 +50,7 @@ Template.map.rendered = function() {
 
   Locations.find().observe({
     added: function (doc) {
-      var burnEvent = Events.findOne({location: doc._id}),
+      var burnEvent = Events.findOne({location: doc._id, endDateTime: {$gt: new Date()}}),
           community = Communities.findOne({location: doc._id}),
           
           latlng = { lat: doc.lat, lng: doc.lng },
