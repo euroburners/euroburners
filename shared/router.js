@@ -68,3 +68,11 @@ FlowRouter.route('/resources', {
   }  
 });
 
+/* ***** route: register ***** */ 
+FlowRouter.route('/register', {
+  action: function(params) {
+    FlowLayout.render('register');
+    // setSelectedNavigationTab('#nav-register');
+  }  
+});
+

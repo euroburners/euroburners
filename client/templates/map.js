@@ -46,11 +46,12 @@ Template.map.rendered = function() {
   // map.locate({setView: true, maxZoom: 11});
 
   // set tile provider (REF: http://leaflet-extras.github.io/leaflet-providers/preview/)
-  L.tileLayer.provider('Acetate.all').addTo(map);
+  L.tileLayer.provider('CartoDB.Positron').addTo(map);
 
   Locations.find().observe({
     added: function (doc) {
-      var burnEvent = Events.findOne({location: doc._id, endDateTime: {$gt: new Date()}}),
+      // var burnEvent = Events.findOne({location: doc._id, endDateTime: {$gt: new Date()}}),
+      var burnEvent = Events.findOne({location: doc._id}),
           community = Communities.findOne({location: doc._id}),
           
           latlng = { lat: doc.lat, lng: doc.lng },
