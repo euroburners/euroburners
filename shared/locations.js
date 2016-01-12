@@ -6,7 +6,7 @@ Locations.helpers({
     var regionals = [];
     
     this.regionalContacts.forEach(function(contactId) {
-      regionals.push(Persons.find(contactId));
+      regionals.push(Meteor.users.find(contactId));
     });
     
     return regionals;
@@ -15,6 +15,6 @@ Locations.helpers({
     return Locations.findOne(this.location);
   },
   getContact: function() {
-    return Persons.findOne(this.contact);
+    return Meteor.users.findOne(this.contact);
   }
 });

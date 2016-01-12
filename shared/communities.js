@@ -6,7 +6,7 @@ Communities.helpers({
     return Locations.findOne(this.location);
   },
   getContact: function() {
-    return Persons.findOne(this.contact);
+    return Meteor.users.findOne(this.contact);
   }});
 
 Communities.before.remove(function(userId, doc) {

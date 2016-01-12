@@ -1,5 +1,16 @@
 <template name="register">
-  <div id="register">
-    == register coming soon == 
+  <div id="register" class="centered" style="border:1px solid; border-radius: 5px; width: 40%; padding: 40px;">
+    <label>
+      <div>Email address:</div>
+      <input id="txtEmail" type="email" placeholder="user@example.com">
+    </label>
+    <label>
+      <div>Password:</div>
+      <input id="txtPassword" type="password" placeholder="new password">
+    </label>
+    
+    <div><button id="btnRegister">Register</button></div>
+    
+    <div id="errors" style="border: 1px solid red; border-radius: 5px; padding: 5px; margin-top: 10px; color: red; display: none;"></div>
   </div>
 </template>

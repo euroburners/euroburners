@@ -6,7 +6,7 @@ Events.helpers({
     return Locations.findOne(this.location);
   },
   getContact: function() {
-    return Persons.findOne(this.contact);
+    return Meteor.users.findOne(this.contact);
   }, 
   isInPast: function() {
     return this.endDateTime < new Date();

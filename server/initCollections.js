@@ -19,6 +19,9 @@ InitializationErrors = {
     
 
 Meteor.startup(function() {
+  // TODO: Remove collection initialization before moving to production
+  console.warn('Remove collection initialization before moving to production!');
+  
   var initDone = AppSettings.findOne({key: 'initDone'}),
       interval;
 

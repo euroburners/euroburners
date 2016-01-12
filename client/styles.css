@@ -260,6 +260,30 @@ ul.countryCommunityList li div.editCommunity {
   font-size: 0.8em;
   margin-left: 5px;
 }
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+div#register {
+  font-family: Georgia serif;
+  font-size: 1.3em;
+}
+
+div#register input {
+  width: 100%;
+  font: inherit;
+  margin-bottom: 10px;
+}
+div#register button {
+  font: inherit;
+}
+
   
 /* styles for iPhone/Android portrait */
 /*

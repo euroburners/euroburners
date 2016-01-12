@@ -40,7 +40,7 @@ Template.calendar.rendered = function() {
     eventClick: function(event) {
       Session.set('selectedEventId', event.id);
       $('#eventDetail.modal')
-        .modal({detachable: false})
+        // .modal({detachable: false})
         .modal('show');
     }
   });

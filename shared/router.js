@@ -72,7 +72,20 @@ FlowRouter.route('/resources', {
 FlowRouter.route('/register', {
   action: function(params) {
     FlowLayout.render('register');
-    // setSelectedNavigationTab('#nav-register');
+  }  
+});
+
+/* ***** route: profile ***** */ 
+FlowRouter.route('/profile/:id', {
+  action: function(params) {
+    FlowLayout.render('profile');
+  }  
+});
+
+/* if no ID is present in URI, redirect to home */
+FlowRouter.route('/profile/', {
+  action: function(params) {
+    FlowRouter.go('/');
   }  
 });
 

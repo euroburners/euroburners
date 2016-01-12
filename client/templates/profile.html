@@ -1,0 +1,74 @@
+<template name="profile">
+  <style>
+    .col1, .col2 {
+      display: inline-block;
+      width: 47%;
+      margin: 5px;
+      vertical-align: top;
+    }
+    .col1 {
+      text-align: right;
+      padding-top: 4px;
+    }
+    
+    input, 
+    select, 
+    button {
+      width: 100%;
+      font: inherit;
+    }
+  </style>
+
+  <div id="profile" style="width: 60%; margin: 50px auto 20px; border:1px solid; border-radius: 5px; padding: 5px;">
+    {{#with currentUser}}
+    <div class="col1">First Name:</div>
+    <div class="col2"><input type="text" data-key="profile.firstName" placeholder="First Name" value="{{profile.firstName}}"></div>
+    
+    <div class="col1">Last Name:</div>
+    <div class="col2"><input type="text" data-key="profile.lastName" placeholder="Last Name" value="{{profile.lastName}}"></div>
+    
+    <div class="col1">AKA (playa name, handle, nickname):</div>
+    <div class="col2"><input type="text" data-key="profile.handle" placeholder="Nickname / playa name" value="{{profile.handle}}"></div>
+    
+    <div class="col1">Email Address:</div>
+    <div class="col2"><input type="email" readonly value="{{emails.[0].address}}"></div>
+    
+    <div class="col1">Country:</div>
+    <div class="col2">
+      <select id="selCountry" data-key="profile.country">
+        <!-- TODO: get countries from a Mongo collection rather than hard-coded -->
+        <option>Choose your country:</option>
+        <option value="Austria">Austria</option>
+        <option value="Belgium">Belgium</option>
+        <option value="Czech Republic">Czech Republic</option>
+        <option value="Denmark">Denmark</option>
+        <option value="Estonia">Estonia</option>
+        <option value="Finland">Finland</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <option value="Greece">Greece</option>
+        <option value="Italy">Italy</option>
+        <option value="Latvia">Latvia</option>
+        <option value="Lithuania">Lithuania</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Russia">Russia</option>
+        <option value="Spain">Spain</option>
+        <option value="Sweden">Sweden</option>
+        <option value="Switzerland">Switzerland</option>
+        <option value="UK: England">UK: England</option>
+        <option value="UK: Ireland">UK: Ireland</option>
+      </select>
+      <!-- TODO: handle missing countries -->
+      <!-- <a id="addCountry" href="#" style="font-size: small;">My country is not listed</a> -->
+    </div>
+    
+    <div class="col1">City:</div>
+    <div class="col2"><input type="text" data-key="profile.city" placeholder="City" value="{{profile.city}}"></div>
+
+    <div class="col1"></div>
+    <div class="col2">
+      <button>Update profile</button>
+    </div>
+    {{/with}}
+  </div>
+</template>

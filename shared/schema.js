@@ -8,28 +8,6 @@
 Schemas = {};
 
 // ============================================
-// Person
-// ============================================
-Schemas.Person = new SimpleSchema({
-  firstName: {
-    type: String
-  },
-  lastName: {
-    type: String
-  },
-  playaName: {
-    type: String
-  },
-  email: {
-    type: String,
-    regEx: SimpleSchema.RegEx.Email
-  },
-  fbUserId: {
-    type: String
-  }
-});
-
-// ============================================
 // LabeledUri
 // ============================================
 Schemas.LabeledUri = new SimpleSchema({
@@ -92,8 +70,8 @@ Schemas.Community = new SimpleSchema({
     // TODO: custom validation that Locations.find(_id) exists
   }, 
   contact: {
-    type: String // id corresponding to Person collection
-    // TODO: custom validation that Persons.find(_id) exists
+    type: String // id corresponding to Meteor.users collection
+    // TODO: custom validation that Meteor.users.findOne(_id) exists
   },
   fbPage: {
     type: String,
@@ -175,9 +153,9 @@ Schemas.Event = new SimpleSchema({
     // TODO: custom validation that Locations.find(_id) exists
   }, 
   contact: {
-    type: String, // id corresponding to Person collection
-    optional: true // if submitted by non-registered person
-    // TODO: custom validation that Persons.find(_id) exists (unless submitterEmail/submitterName)
+    type: String, // id corresponding to Meteor.users collection
+    optional: true // if submitted by non-registered person 
+    // TODO: custom validation that Meteor.users.findOne(_id) exists
   },
   submitterName: {
     type: String,
@@ -218,6 +196,5 @@ Schemas.Event.messages({
 // attach schemas to collections 
 LabeledUris.attachSchema(Schemas.LabeledUri);
 Locations.attachSchema(Schemas.Location);
-Persons.attachSchema(Schemas.Person);
 Events.attachSchema(Schemas.Event);
 Communities.attachSchema(Schemas.Community);

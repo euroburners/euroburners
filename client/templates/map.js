@@ -84,7 +84,14 @@ Template.map.rendered = function() {
           })
           .on('click', function(event) {
             this.closePopup();
-            console.log('TODO: show HUD panel with event or community details');
+            // console.log('TODO: show HUD panel with event or community details');
+            Session.set('selectedEventId', event.id);
+            $('#eventDetail.modal')
+              .modal({detachable: false})
+              // TODO: search for Semantic UI error online: 
+              // transition.js:840 Transition: There is no css animation matching the one you specified. scale in 
+              .modal('show');
+            
             // map.setView(<LatLng> center, <Number> zoom?, <zoom/pan options> options?)
             console.log('TODO: scroll and zoom map so that event or community is centered in remaining space');
           })
