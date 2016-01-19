@@ -15,7 +15,6 @@ http
 rzymek:fullcalendar
 momentjs:moment
 meteorhacks:flow-router
-semantic:ui@2.1.6
 meteorhacks:flow-layout
 standard-minifiers
 meteor-base
@@ -32,3 +31,5 @@ ejson
 spacebars
 check
 accounts-password
+flemay:less-autoprefixer
+semantic:ui

@@ -1,0 +1,57 @@
+<template name="communityDetail">
+  <div id="communityDetail" class="ui small modal">
+    <div id="closeCommunityDetail">
+      <i class="large remove icon"></i>
+    </div>
+    
+    <!--
+    name
+    description
+    location
+    contact
+    fbPage
+    regionalContactEmail
+    regionalContactUri
+    twitter
+    uris
+    -->
+    
+    <div id="communityDetailContent">
+      {{#with selectedCommunity}}
+        <div class="communityName">{{name}}</div>
+
+        <div class="communityDescription">{{description}}</div>
+
+        {{#with getLocation}}
+        <div class="communityLocation">
+          Location: 
+          {{#if city}}{{city}},{{/if}}
+          {{country}}
+        </div>
+        {{/with}}
+
+        {{#with getContact}}
+        <div class="communityContact">Contact: {{name}}</div>
+        {{/with}}
+
+        {{#if fbCommunity}}
+        <div class="communityFbCommunity">
+          <a href="{{fbCommunity}}" target="_blank">Facebook Community</a>
+        </div>
+        {{/if}}
+
+        {{#if communityUri}}
+        <div class="communityUri">
+          <a href="{{communityUri}}" target="_blank">Website</a>
+        </div>
+        {{/if}}
+
+        {{#if canEdit}}
+        <div class="communityEditLink">
+          <a href="#">Edit this community</a>
+        </div>
+        {{/if}}
+      {{/with}}
+    </div>
+  </div>
+</template>

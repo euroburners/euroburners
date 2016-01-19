@@ -1,13 +1,14 @@
 /*
   DO NOT MODIFY - This file has been generated and will be regenerated
-  Semantic UI v1.12.1
+  Semantic UI v2.1.7
 */
+
 /*!
  * # Semantic UI - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -34,11 +35,14 @@
   top: 0px;
   right: 0px;
 
+  /* Fixes content being squished when inline (moz only) */
+  min-width: min-content;
   z-index: @zIndex;
 
   border: @border;
+  line-height: @lineHeight;
   max-width: @maxWidth;
-  background-color: @background;
+  background: @background;
 
   padding: @verticalPadding @horizontalPadding;
   font-weight: @fontWeight;
@@ -84,17 +88,43 @@
 .ui.popup {
   margin: 0em;
 }
-.ui.popup.bottom {
-  margin: @popupDistanceAway 0em 0em;
-}
-.ui.popup.top {
+
+/* Extending from Top */
+.ui.top.popup {
   margin: 0em 0em @popupDistanceAway;
 }
-.ui.popup.left.center {
-  margin: 0em @popupDistanceAway 0em 0em;
+.ui.top.left.popup {
+  transform-origin: left bottom;
 }
-.ui.popup.right.center {
+.ui.top.center.popup {
+  transform-origin: center bottom;
+}
+.ui.top.right.popup {
+  transform-origin: right bottom;
+}
+
+/* Extending from Vertical Center */
+.ui.left.center.popup {
+  margin: 0em @popupDistanceAway 0em 0em;
+  transform-origin: right 50%;
+}
+.ui.right.center.popup {
   margin: 0em 0em 0em @popupDistanceAway;
+  transform-origin: left 50%;
+}
+
+/* Extending from Bottom */
+.ui.bottom.popup {
+  margin: @popupDistanceAway 0em 0em;
+}
+.ui.bottom.left.popup {
+  transform-origin: left top;
+}
+.ui.bottom.center.popup {
+  transform-origin: center top;
+}
+.ui.bottom.right.popup {
+  transform-origin: right top;
 }
 
 /*--------------
@@ -114,6 +144,7 @@
 .ui.bottom.left.popup {
   margin-left: @boxArrowOffset;
 }
+/*rtl:rename*/
 .ui.bottom.left.popup:before {
   top: @arrowOffset;
   left: @arrowDistanceFromEdge;
@@ -126,6 +157,7 @@
 .ui.bottom.right.popup {
   margin-right: @boxArrowOffset;
 }
+/*rtl:rename*/
 .ui.bottom.right.popup:before {
   top: @arrowOffset;
   right: @arrowDistanceFromEdge;
@@ -146,6 +178,7 @@
 .ui.top.left.popup {
   margin-left: @boxArrowOffset;
 }
+/*rtl:rename*/
 .ui.top.left.popup:before {
   bottom: @arrowOffset;
   left: @arrowDistanceFromEdge;
@@ -156,6 +189,7 @@
 .ui.top.right.popup {
   margin-right: @boxArrowOffset;
 }
+/*rtl:rename*/
 .ui.top.right.popup:before {
   bottom: @arrowOffset;
   right: @arrowDistanceFromEdge;
@@ -165,6 +199,7 @@
 }
 
 /*--- Left Center ---*/
+/*rtl:rename*/
 .ui.left.center.popup:before {
   top: 50%;
   right: @arrowOffset;
@@ -175,6 +210,7 @@
 }
 
 /*--- Right Center  ---*/
+/*rtl:rename*/
 .ui.right.center.popup:before {
   top: 50%;
   left: @arrowOffset;
@@ -183,6 +219,31 @@
   margin-top: @arrowOffset;
   box-shadow: @rightArrowBoxShadow;
 }
+
+/* Arrow Color By Location */
+.ui.bottom.popup:before {
+  background: @arrowTopBackground;
+}
+.ui.right.center.popup:before,
+.ui.left.center.popup:before {
+  background: @arrowCenterBackground;
+}
+.ui.top.popup:before {
+  background: @arrowBottomBackground;
+}
+
+/* Inverted Arrow Color */
+.ui.inverted.bottom.popup:before {
+  background: @invertedArrowTopBackground;
+}
+.ui.inverted.right.center.popup:before,
+.ui.inverted.left.center.popup:before {
+  background: @invertedArrowCenterBackground;
+}
+.ui.inverted.top.popup:before {
+  background: @invertedArrowBottomBackground;
+}
+
 
 /*******************************
             Coupling
@@ -209,6 +270,11 @@
   display: block;
 }
 
+.ui.visible.popup {
+  transform: translateZ(0px);
+  backface-visibility: hidden;
+}
+
 
 /*******************************
             Variations
@@ -232,6 +298,13 @@
 }
 .ui[class*="very wide"].popup {
   max-width: @veryWideWidth;
+}
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.wide.popup,
+  .ui[class*="very wide"].popup {
+    max-width: @maxWidth;
+  }
 }
 
 
@@ -278,6 +351,12 @@
      Sizes
 ---------------*/
 
+.ui.mini.popup {
+  font-size: @mini;
+}
+.ui.tiny.popup {
+  font-size: @tiny;
+}
 .ui.small.popup {
   font-size: @small;
 }

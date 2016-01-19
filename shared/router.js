@@ -45,7 +45,7 @@ FlowRouter.route('/events/:id/edit', {
 });
 
 /* ***** route: communities ***** */ 
-FlowRouter.route('/groups', {
+FlowRouter.route('/communities', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'communities'});
     setSelectedNavigationTab('#nav-groups');
@@ -53,7 +53,7 @@ FlowRouter.route('/groups', {
 });
 
 /* ***** route: communities editing ***** */ 
-FlowRouter.route('/groups/:id/edit', {
+FlowRouter.route('/communities/:id/edit', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'editCommunity'});
     setSelectedNavigationTab('#nav-groups');

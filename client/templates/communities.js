@@ -46,7 +46,7 @@ Template.communities.helpers({
 Template.communities.events({
   'click div.editCommunity': function(event, template) {
     // console.log('click div.editCommunity', this, event, template);
-    FlowRouter.go('/groups/' + this._id + '/edit');
+    FlowRouter.go('/communities/' + this._id + '/edit');
   },
 
   'click div.addContact': function(event, template) {

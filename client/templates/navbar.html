@@ -1,14 +1,27 @@
 <template name="navbar">
+  <!-- branding / login / publish links -->
+  <div id="brandbar">
+    <span style="float: right; margin-right: 10px;">
+      {{#if currentUser}}
+      Welcome, {{currentUser.profile.firstName}}
+      {{else}}
+      Log in
+      {{/if}}
+    </span>
+    
+    <span style="font-weight: bold; margin-left: 10px;">euroburners.org</span>
+  </div>
+  
+  <!-- search / navigation -->
   <div id="navbar">
     <label id="search">
       Search
       <input type="text" placeholder="Name, location, city, country">
     </label>
-    
+
     <ul id="nav-menu">
       <li class="nav-item" id="nav-map">Map</li>
-      <li class="nav-item" id="nav-calendar">Calendar</li>
-      
+      <li class="nav-item" id="nav-calendar">Calendar</li>      
       <!-- <li class="nav-item" id="nav-events">Events</li> -->
       <li class="nav-item" id="nav-groups">Groups</li>
       <!-- <li class="nav-item" id="nav-resources">Resources</li> -->
