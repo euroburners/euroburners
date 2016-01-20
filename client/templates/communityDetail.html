@@ -34,15 +34,27 @@
         <div class="communityContact">Contact: {{name}}</div>
         {{/with}}
 
-        {{#if fbCommunity}}
+        {{#if fbPage}}
         <div class="communityFbCommunity">
-          <a href="{{fbCommunity}}" target="_blank">Facebook Community</a>
+          <a href="{{fbPage}}" target="_blank">Facebook Community</a>
         </div>
         {{/if}}
 
         {{#if communityUri}}
         <div class="communityUri">
           <a href="{{communityUri}}" target="_blank">Website</a>
+        </div>
+        {{/if}}
+
+        {{#if regionalContactEmail}}
+        <div class="communityRegionalContactEmail">
+          <a href="mailto:{{regionalContactEmail}}">{{regionalContactEmail}}</a>
+        </div>
+        {{/if}}
+
+        {{#if regionalContactUri}}
+        <div class="communityRegionalContactUri">
+          <a href="{{regionalContactUri}}" target="_blank">{{regionalContactUri}}</a>
         </div>
         {{/if}}
 
