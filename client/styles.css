@@ -11,23 +11,9 @@ input {
 #brandbar, #navbar {
   width: 100%;
   background-color: white;
-  vertical-align: middle;
-  height: 30px;
-  color: #333;
-}
-#navbar:hover {
-  color: black;
-}
-#layout-map #brandbar,
-#layout-map #navbar {
-/*  position: absolute;*/
   opacity: 0.8;
-}
-#layout-map #brandbar {
-/*  top: 0;*/
-}
-#layout-map #navbar {
-/*  top: 30px;*/
+  border: 0;
+  margin: 0;
 }
 
 
@@ -63,22 +49,6 @@ input {
   margin: 10px;
 }
 
-
-label#search {
-  float: right;
-  text-align: right;
-  width: 35%;
-}
-label#search input  {
-  width: 70%;
-  margin: 3px;
-  padding: 0 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  line-height: 1.5em;
-  font-size: 16px;
-  outline: none;
-}
 
 #nav-menu {
   display: inline-block;

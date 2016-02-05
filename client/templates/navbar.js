@@ -1,3 +1,7 @@
+Template.navbar.onRendered(function() {
+  $('.dropdown').dropdown();
+});
+
 Template.navbar.events({
   'click .nav-item': function(event, template) {
     $('.nav-item').removeClass('selected');
@@ -28,7 +32,7 @@ Template.navbar.events({
     $('#nav-menu').show();
   },
   
-  'click .nav-item': function(event, template) {
+  'click #navbar > a.item': function(event, template) {
     FlowRouter.go('/' + event.currentTarget.innerText.toLowerCase());
     
     // TODO: conditional based on screen width / device check 

@@ -1,32 +1,43 @@
 <template name="navbar">
   <!-- branding / login / publish links -->
-  <div id="brandbar">
-    <span style="float: right; margin-right: 10px;">
+  <div class="ui secondary menu" id="brandbar">
+    <a href="/" class="header item">euroburners.org</a>
+
+    <div class="right menu">
+      <div class="item">
+        <div id="search" class="ui action left icon input">
+          <i class="search icon"></i>
+          <input type="text" placeholder="Event or place name">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- search / navigation -->
+  <div class="ui secondary menu" id="navbar">
+    <a class="item" id="nav-map">Map</a>
+    <a class="item" id="nav-calendar">Calendar</a>
+    <!-- <a class="item" id="nav-events">Events</a> -->
+    <a class="item" id="nav-groups">Communities</a>
+    <div class="ui dropdown item">
+      Resources
+      <div class="menu transition hidden" tabindex="-1">
+        <a class="item" href="http://www.burningman.org/" target="_blank">The Ten Principles</a>
+        <a class="item" href="http://www.burningman.org/" target="_blank">Burning Man</a>
+      </div>
+    </div>
+
+    <div class="right ui dropdown item" tabindex="0">
       {{#if currentUser}}
       Welcome, {{currentUser.profile.firstName}}
       {{else}}
       Log in
       {{/if}}
-    </span>
-    
-    <span style="font-weight: bold; margin-left: 10px;">euroburners.org</span>
-  </div>
-  
-  <!-- search / navigation -->
-  <div id="navbar">
-    <label id="search">
-      Search
-      <input type="text" placeholder="Name, location, city, country">
-    </label>
-
-    <ul id="nav-menu">
-      <li class="nav-item" id="nav-map">Map</li>
-      <li class="nav-item" id="nav-calendar">Calendar</li>      
-      <!-- <li class="nav-item" id="nav-events">Events</li> -->
-      <li class="nav-item" id="nav-groups">Communities</li>
-      <!-- <li class="nav-item" id="nav-resources">Resources</li> -->
-    </ul>
-
-    <i id="navicon" class="fa fa-lg fa-navicon"></i>
+      <div class="menu transition hidden" tabindex="-1" style="z-index: 100;">
+        <a class="item" href="/">Add Event</a>
+        <a class="item" href="/">Edit Community</a>
+      </div>
+    </div>  
   </div>
 </template>
