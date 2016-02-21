@@ -1,9 +1,5 @@
 <template name="communityDetail">
   <div id="communityDetail" class="ui small modal">
-    <div id="closeCommunityDetail">
-      <i class="large remove icon"></i>
-    </div>
-    
     <!--
     name
     description
@@ -16,9 +12,13 @@
     uris
     -->
     
-    <div id="communityDetailContent">
+    <div id="communityDetailContent" class="modal-detail">
+      <div class="right close" id="closeCommunityDetail">
+        <i class="large remove icon"></i>
+      </div>
+
       {{#with selectedCommunity}}
-        <div class="communityName">{{name}}</div>
+        <div class="name">{{name}}</div>
 
         <div class="communityDescription">{{description}}</div>
 
@@ -57,14 +57,11 @@
           <a href="{{regionalContactUri}}" target="_blank">{{regionalContactUri}}</a>
         </div>
         {{/if}}
-
-        {{#if canEdit}}
-        <!--
-        <div class="communityEditLink">
-          <a href="#">Edit this community</a>
+        
+        <div class="more" >
+          {{#if canEdit}}<a href="#">Edit this community</a> |{{/if}}
+          <a href="#">More information</a>
         </div>
-        -->
-        {{/if}}
       {{/with}}
     </div>
   </div>

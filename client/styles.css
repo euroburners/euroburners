@@ -85,25 +85,28 @@ input {
 }
 
 /* ***** event details ***** */
-#eventDetail {
-  display: none;
+.close {
+  text-align: right;
 }
-#closeEventDetail {
-  float: right;
-}
-i.remove.icon {
+.close i.remove.icon {
   cursor: pointer;
 }
-#eventDetailContent {
-  padding: 0 1.5em 1.5em 1.5em;
+.modal-detail {
+  padding: 0.5em 0.5em 1.5em 1.5em;
   clear: both;
 }
-#eventDetail .eventNameAndDate .name {
+.modal-detail .name {
   font-weight: bold;
 }
 #eventDetail .eventIsInPast {
   color: darkgray;
   font-style: italic;
+}
+.more {
+  text-align: right;
+  font-size: smaller;
+  text-decoration: none;
+  margin-right: 1em;
 }
 
 /* ***** event editing ***** */

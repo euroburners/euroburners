@@ -1,10 +1,10 @@
 <template name="eventDetail">
   <div id="eventDetail" class="ui small modal">
-    <div class="right" id="closeEventDetail">
-      <i class="large remove icon"></i>
-    </div>
-    
-    <div id="eventDetailContent">
+    <div id="eventDetailContent" class="modal-detail">
+      <div class="right close" id="closeEventDetail">
+        <i class="large remove icon"></i>
+      </div>
+
       {{#with selectedEvent}}
         <div class="eventNameAndDate">
           <span class="name">{{name}}:</span>
@@ -19,7 +19,9 @@
         <div class="eventDescription">{{description}}</div>
 
         {{#with getLocation}}
-        <div class="eventLocation">Location: {{city}}, {{country}}</div>
+        <div class="eventLocation">Location: 
+        {{#if city}}{{city}},{{/if}}
+        {{country}}</div>
         {{/with}}
 
         {{#with getContact}}
@@ -37,14 +39,11 @@
           <a href="{{eventUri}}" target="_blank">Website</a>
         </div>
         {{/if}}
-
-        {{#if canEdit}}
-        <!--
-        <div class="eventEditLink">
-          <a href="#">Edit this event</a>
+        
+        <div class="more" >
+          {{#if canEdit}}<a href="#">Edit this event</a> |{{/if}}
+          <a href="#">More information</a>
         </div>
-        -->
-        {{/if}}
       {{/with}}
     </div>
   </div>
