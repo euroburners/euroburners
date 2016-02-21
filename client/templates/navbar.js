@@ -32,7 +32,7 @@ Template.navbar.events({
     $('#nav-menu').show();
   },
   
-  'click #navbar > a.item': function(event, template) {
+  'click #brandbar a.item': function(event, template) {
     FlowRouter.go('/' + event.currentTarget.innerText.toLowerCase());
     
     // TODO: conditional based on screen width / device check 
