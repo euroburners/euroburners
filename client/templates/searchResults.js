@@ -1,4 +1,8 @@
-var hideTimeout = null;
+Template.searchResults.rendered = function() {
+  if (this.firstNode) {
+    this.firstNode.style.top = $('#brandbar').css('height');
+  }
+};
 
 Template.searchResults.helpers({
   searchResults: function() {
@@ -7,25 +11,18 @@ Template.searchResults.helpers({
 });
 
 Template.searchResults.events({
-  'mouseleave #searchResults': function(event, template) {
-    hideTimeout = Meteor.setTimeout(function() {
-      if (hideTimeout) {
-        $('#searchResults').hide(500);
-      }
-    }, 750);
-  }, 
-  
-  'mouseenter #searchResults': function(event, template) {
-    Meteor.clearTimeout(hideTimeout);
-    hideTimeout = null;
-  }  , 
-
   'mouseenter .result': function(event, template) {
-    // mapMarkers[this.location]  
+    var marker = mapMarkers[this.location];
+    marker.options.toggleHoverColor();
   }, 
 
   'mouseleave .result': function(event, template) {
-    // mapMarkers[this.location]
+    var marker = mapMarkers[this.location];
+    marker.options.toggleHoverColor();
+  },
+  
+  'click .result': function(event, template) {
+    console.log('click .result', this, event, template);
   }
 });
 

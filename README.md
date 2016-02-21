@@ -15,3 +15,11 @@ TODO
 * i18n support 
     * https://atmospherejs.com/tap/i18n
     * https://atmospherejs.com/tap/i18n-ui
+
+IDEAS
+-----
+
+* Private calendar view for events, only visible to users with accounts who can publish 'regional' events. This can be used as a 'proposed events' view to help avoid future schedule collisions
+* If 'community events' are supported (not a regional / decom / burning pub night), maybe they only show up when map is zoomed in to a particular depth (city level)
+
+

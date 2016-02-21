@@ -1,6 +1,6 @@
 <template name="eventDetail">
   <div id="eventDetail" class="ui small modal">
-    <div id="closeEventDetail">
+    <div class="right" id="closeEventDetail">
       <i class="large remove icon"></i>
     </div>
     
@@ -39,9 +39,11 @@
         {{/if}}
 
         {{#if canEdit}}
+        <!--
         <div class="eventEditLink">
           <a href="#">Edit this event</a>
         </div>
+        -->
         {{/if}}
       {{/with}}
     </div>

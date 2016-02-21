@@ -19,7 +19,7 @@ Template.navbar.events({
       });
       
       $('#searchResults').addClass('active-result');
-      $('#searchResults').show(500);
+      $('#searchResults').show();
       Session.set('activeContainer', '#searchResults');
     }
     else {

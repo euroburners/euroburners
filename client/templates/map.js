@@ -2,6 +2,13 @@
 
 var activeMarker = null;
 
+var _normalClass,
+    _highlightClass,
+    _highlighted = false, 
+
+    _classBase = 'awesome-marker-icon-';
+    
+
 // no `var` here so this will be globally accessible (used by search results)
 // TODO: consider inserting into Session instead
 mapMarkers = {};
@@ -14,7 +21,7 @@ Template.map.events({
       $(activeContainer).hide(500);
     }
     
-    $('#search').val('');
+    $('#search input').val('');
   }
 });
 
@@ -40,7 +47,7 @@ Template.map.rendered = function() {
     markerColor: 'purple'
   });
   
-  map.setView([49, 9], 5);
+  map.setView([50, 15.5], 4);
   
   // we can use this to zoom to current location (use on mobile devices?)
   // map.locate({setView: true, maxZoom: 11});
@@ -60,34 +67,52 @@ Template.map.rendered = function() {
           };
       
       if (burnEvent) {
-        props.label = burnEvent.name, 
+        props.title = burnEvent.name;
         // TODO: differentiate icon based on type of event
-        props.icon = eventMarker,
-        props.type = 'event',
-        props.id = burnEvent._id
+        props.icon = eventMarker;
+        props.type = 'event';
+        props.id = burnEvent._id;
+        props.hoverColor = 'lightgreen';
       }
       else if (community) {
-        props.label = community.description, 
-        props.icon = communityMarker,
-        props.type = 'community',
-        props.id = community._id
+        props.title = community.description;
+        props.icon = communityMarker;
+        props.type = 'community';
+        props.id = community._id;
+        props.hoverColor = 'pink';
       }
+      
+      props.toggleHoverColor = function() {
+        var obj = (this.type === 'event') 
+                  ? Events.findOne(this.id)
+                  : Communities.findOne(this.id), 
+          
+            marker = mapMarkers[obj.location];
+          
+        _normalClass = _classBase + this.icon.options.markerColor;
+        _highlightClass = _classBase + this.hoverColor;
+
+        if (marker) {
+          if (_highlighted) {
+            marker._icon.classList.remove(_highlightClass);
+            marker._icon.classList.add(_normalClass);
+            _highlighted = false;
+          }
+          else {
+            marker._icon.classList.remove(_normalClass);
+            marker._icon.classList.add(_highlightClass);
+            _highlighted = true;
+          }
+        }
+      };
+      
       
       if (burnEvent || community) {
         mapMarkers[doc._id] = L.marker(latlng, props)
-          .bindPopup(props.label, {
-            closeButton: false, 
-            offset: new L.Point(0, -20)
-          })
-          .on('mouseover', function(event) {
-            this.openPopup();
-          })
           .on('click', function(event) {
             var options = event.target.options, 
                 sessionVar = 'selected' + options.type.capitalize() + 'Id', 
                 selector = '#' + options.type + 'Detail.modal';
-            
-            this.closePopup();
             
             Session.set(sessionVar, options.id);
             
@@ -95,10 +120,14 @@ Template.map.rendered = function() {
               .modal({detachable: false})
               .modal('show');
             
-            console.log(sessionVar, selector); 
-            
             // map.setView(<LatLng> center, <Number> zoom?, <zoom/pan options> options?)
             console.log('TODO: scroll and zoom map so that event or community is centered in remaining space');
+          })
+          .on('mouseover', function(event) {
+            this.options.toggleHoverColor();
+          })
+          .on('mouseout', function(event) {
+            this.options.toggleHoverColor();
           })
           .addTo(map);
       }
