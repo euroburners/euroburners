@@ -1,3 +1,18 @@
 <template name="calendar">
-  <div id="calendar"></div>
+  <div id="calendar">
+    {{#each events}}
+    <div class="event">
+      {{name}}
+    </div>
+    {{/each}}
+  </div>
 </template>
+
+<!-- 
+_id
+endDateTime
+location
+name
+startDateTime
+submitterName
+-->

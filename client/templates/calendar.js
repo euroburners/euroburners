@@ -7,41 +7,56 @@
 
 Template.calendar.rendered = function() {
   // initialize calendar view
-  $('#calendar').fullCalendar({
-    height: screen.availHeight - 30,
-    
-    header: {
-      left: '',
-      center: 'title'
-    },
-    
-    // populate events 
-    events: function(start, end, timezone, callback) {
-      var events = Events.find().fetch().map(function(event) {
-        var options = {
-          id: event._id,
-          title: event.name,
-          start: event.startDateTime,
-          end: event.endDateTime
-        };
-        
-        // TODO: icon for event type (weekend, regional, decompression, regular)
-        //       - assemble all classes as array, then assign to .className with [].join(' ');
-        if (event.isInPast()) {
-          options.className = 'past';
-        }
-        
-        return options;
-      });
-      
-      callback(events); 
-    },
-    
-    eventClick: function(event) {
-      Session.set('selectedEventId', event.id);
-      $('#eventDetail.modal')
-        // .modal({detachable: false})
-        .modal('show');
-    }
-  });
+  // $('#calendar').fullCalendar({
+  //     height: screen.availHeight - 30,
+  //     
+  //     header: {
+  //       left: '',
+  //       center: 'title'
+  //     },
+  //     
+  //     // populate events 
+  //     events: function(start, end, timezone, callback) {
+  //       var events = Events.find().fetch().map(function(event) {
+  //         var options = {
+  //           id: event._id,
+  //           title: event.name,
+  //           start: event.startDateTime,
+  //           end: event.endDateTime
+  //         };
+  //         
+  //         // TODO: icon for event type (weekend, regional, decompression, regular)
+  //         //       - assemble all classes as array, then assign to .className with [].join(' ');
+  //         if (event.isInPast()) {
+  //           options.className = 'past';
+  //         }
+  //         
+  //         return options;
+  //       });
+  //       
+  //       callback(events); 
+  //     },
+  //     
+  //     eventClick: function(event) {
+  //       Session.set('selectedEventId', event.id);
+  //       $('#eventDetail.modal')
+  //         // .modal({detachable: false})
+  //         .modal('show');
+  //     }
+  //   });
 };
+
+Template.calendar.helpers({
+  events: function() {
+    return _.sortBy(Events.find().fetch(), 'startDateTime');
+  }
+});
+
+/*
+_id
+endDateTime
+location
+name
+startDateTime
+submitterName
+*/
