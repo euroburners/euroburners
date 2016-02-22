@@ -23,8 +23,17 @@ Meteor.startup(function() {
   Session.set('searchResults', null);
 });
 
-Template.registerHelper('formatDate', function(date, formatString) {
+Template.registerHelper('formatDate', function(date) {
   return Intl.DateTimeFormat('en-GB').format(date);
+});
+
+Template.registerHelper('formatDateShort', function(date) {
+  var options = {
+    month: 'short',
+    day: 'numeric'
+  };
+  
+  return Intl.DateTimeFormat('en-GB', options).format(date);
 });
 
 Template.registerHelper('formattedDates', function(start, end) {

@@ -2,7 +2,14 @@
   <div id="calendar">
     {{#each events}}
     <div class="event">
-      {{name}}
+      <div class="shortDate">{{formatDateShort startDateTime}}</div>
+      <div class="name">
+        {{name}} <br> 
+        <span style="font-size: smaller;">{{formattedDates startDateTime endDateTime}}</span> <br>
+        Some short description here... 
+      </div>
+      <div class="icon">
+      </div>
     </div>
     {{/each}}
   </div>

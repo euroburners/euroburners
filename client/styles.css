@@ -32,11 +32,48 @@ input {
 
 /* ***** calendar styles ***** */
 #calendar {
-  margin: 10px;
-  overflow: scroll;
+  width: 60%;
+  margin: 1.5em auto;
 }
-.past {
-  background-color: gray;
+
+#calendar .event {
+  display: table;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  margin-bottom: 1em;
+  height: 75px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+
+#calendar .event .shortDate {
+  display: table-cell;
+  height: 75px;
+  width: 15%;
+  font-size: 1.5em;
+  text-align: center;
+  vertical-align: inherit;
+  padding: 0 1em;
+  border: 1px solid #ddd;
+}
+
+#calendar .event .name {
+  display: table-cell;
+  height: 40px;
+  width: *;
+  padding: 1em; 
+  vertical-align: middle;
+  border: 0 1px 1px 1px solid #ddd;
+}
+
+#calendar .event .icon {
+  display: table-cell;
+  height: 40px;
+  width: 15%;
+  padding: 1em; 
+  vertical-align: middle;
+  border: 1px 1px 1px 0 solid #ddd;
 }
 
 
