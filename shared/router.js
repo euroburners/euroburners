@@ -1,6 +1,15 @@
-var setSelectedNavigationTab = function(selector) {
+function setSelectedNavigationTab(selector) {
   $('.nav-item.selected').removeClass('selected');
   $(selector).addClass('selected');
+}
+
+function hideModal() {
+  var modalSelector = Session.get('activeModal');
+
+  if (modalSelector) {
+    $(modalSelector).modal('hide');
+    Session.set('activeModal', null);      
+  }
 }
 
 
@@ -12,14 +21,16 @@ FlowRouter.route('/', {
   }  
 });
 
+
 /* ***** route: calendar ***** */ 
 FlowRouter.route('/calendar', {
   action: function(params) {
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'calendar'});
-    $('#calendar').fullCalendar('render');
+    // $('#calendar').fullCalendar('render');
     setSelectedNavigationTab('#nav-calendar');
   }  
 });
+
 
 /* ***** route: map ***** */ 
 FlowRouter.route('/map', {
@@ -28,6 +39,7 @@ FlowRouter.route('/map', {
   }  
 });
 
+
 /* ***** route: events ***** */ 
 FlowRouter.route('/events', {
   action: function(params) {
@@ -35,14 +47,23 @@ FlowRouter.route('/events', {
     setSelectedNavigationTab('#nav-events');
   }  
 });
-
+/* ***** route: view individual event ***** */ 
+FlowRouter.route('/events/:id', {
+  action: function(params) {
+    hideModal();
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'viewEvent'});
+    setSelectedNavigationTab('#nav-events');
+  }  
+});
 /* ***** route: events editing ***** */ 
 FlowRouter.route('/events/:id/edit', {
   action: function(params) {
+    hideModal();
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'editEvent'});
     setSelectedNavigationTab('#nav-events');
   }  
 });
+
 
 /* ***** route: communities ***** */ 
 FlowRouter.route('/communities', {
@@ -51,14 +72,23 @@ FlowRouter.route('/communities', {
     setSelectedNavigationTab('#nav-groups');
   }  
 });
-
+/* ***** route: view individual community ***** */ 
+FlowRouter.route('/communities/:id', {
+  action: function(params) {
+    hideModal();
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'viewCommunity'});
+    setSelectedNavigationTab('#nav-groups');
+  }  
+});
 /* ***** route: communities editing ***** */ 
 FlowRouter.route('/communities/:id/edit', {
   action: function(params) {
+    hideModal();
     FlowLayout.render('layout-main', {nav: 'navbar', main: 'editCommunity'});
     setSelectedNavigationTab('#nav-groups');
   }  
 });
+
 
 /* ***** route: resources ***** */ 
 FlowRouter.route('/resources', {
@@ -67,6 +97,7 @@ FlowRouter.route('/resources', {
     setSelectedNavigationTab('#nav-resources');
   }  
 });
+
 
 /* ***** route: register ***** */ 
 FlowRouter.route('/register', {

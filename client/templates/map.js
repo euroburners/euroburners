@@ -115,6 +115,7 @@ Template.map.rendered = function() {
                 selector = '#' + options.type + 'Detail.modal';
             
             Session.set(sessionVar, options.id);
+            Session.set('activeModal', selector);
             
             $(selector)
               .modal({detachable: false})

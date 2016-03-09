@@ -59,8 +59,8 @@
         {{/if}}
         
         <div class="more" >
-          {{#if canEdit}}<a href="#">Edit this community</a> |{{/if}}
-          <a href="#">More information</a>
+          {{#if canEdit}}<a href="/communities/{{_id}}/edit">Edit this community</a> |{{/if}}
+          <a href="/communities/{{_id}}">More information</a>
         </div>
       {{/with}}
     </div>
