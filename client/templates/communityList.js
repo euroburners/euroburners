@@ -12,7 +12,7 @@ var getCommunities = function() {
     });
 }
 
-Template.communities.helpers({
+Template.communityList.helpers({
   communities: function(country) { 
     if (!_communities) {
       getCommunities();
@@ -43,9 +43,9 @@ Template.communities.helpers({
   }
 });
 
-Template.communities.events({
-  'click div.editCommunity': function(event, template) {
-    // console.log('click div.editCommunity', this, event, template);
+Template.communityList.events({
+  'click div.commmunityEdit': function(event, template) {
+    // console.log('click div.commmunityEdit', this, event, template);
     FlowRouter.go('/communities/' + this._id + '/edit');
   },
 

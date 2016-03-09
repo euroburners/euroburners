@@ -68,7 +68,7 @@ FlowRouter.route('/events/:id/edit', {
 /* ***** route: communities ***** */ 
 FlowRouter.route('/communities', {
   action: function(params) {
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'communities'});
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'communityList'});
     setSelectedNavigationTab('#nav-groups');
   }  
 });
@@ -76,7 +76,7 @@ FlowRouter.route('/communities', {
 FlowRouter.route('/communities/:id', {
   action: function(params) {
     hideModal();
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'viewCommunity'});
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'commmunityView'});
     setSelectedNavigationTab('#nav-groups');
   }  
 });
@@ -84,7 +84,7 @@ FlowRouter.route('/communities/:id', {
 FlowRouter.route('/communities/:id/edit', {
   action: function(params) {
     hideModal();
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'editCommunity'});
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'commmunityEdit'});
     setSelectedNavigationTab('#nav-groups');
   }  
 });

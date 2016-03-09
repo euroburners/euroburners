@@ -275,7 +275,7 @@ ul.countryCommunityList li.noContact {
   border-color: red;  
 }
 ul.countryCommunityList li.noContact div.addContact,
-ul.countryCommunityList li div.editCommunity {
+ul.countryCommunityList li div.commmunityEdit {
   display: inline-block;
   float: right;
   font-size: 0.8em;

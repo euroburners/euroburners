@@ -1,17 +1,42 @@
+<!--
+name
+description
+location
+contact
+fbPage
+regionalContactEmail
+regionalContactUri
+twitter
+uris
+-->
+
+<template name="communityList">
+ <div id="communities">
+  {{#each countries}}
+  <div class="countryHeader">{{.}}</div>
+  
+  <ul class="countryCommunityList">
+    {{#each communities .}}
+    <li class={{checkContactExists}}>
+      {{#if canEdit}}
+      <div class="commmunityEdit">Edit</div>
+      {{/if}}
+      <div class="addContact">Add Contact</div>
+      <div>{{description}}</div>
+      <div><a href="mailto:{{regionalContactEmail}}">{{regionalContactEmail}}</a></div>
+      <div><a href="{{regionalContactUri}}">{{regionalContactUri}}</a></div>
+      <div><a href="{{fbPage}}">{{fbPage}}</a></div>
+      <div><a href="{{twitter}}">{{twitter}}</a></div>
+    </li>
+    {{/each}}
+  </ul>
+  
+  {{/each}}
+ </div>
+</template>
+
 <template name="communityDetail">
   <div id="communityDetail" class="ui small modal">
-    <!--
-    name
-    description
-    location
-    contact
-    fbPage
-    regionalContactEmail
-    regionalContactUri
-    twitter
-    uris
-    -->
-    
     <div id="communityDetailContent" class="modal-detail">
       <div class="right close" id="closeCommunityDetail">
         <i class="large remove icon"></i>
@@ -64,5 +89,26 @@
         </div>
       {{/with}}
     </div>
+  </div>
+</template>
+
+
+<template name="communityResult">
+  <div class="community result">
+    {{description}}
+  </div>
+</template>
+
+
+<template name="commmunityEdit">
+  <div id="commmunityEdit">
+    == commmunityEdit coming soon == 
+  </div>
+</template>
+
+
+<template name="commmunityView">
+  <div id="commmunityView">
+    == commmunityView coming soon == 
   </div>
 </template>
