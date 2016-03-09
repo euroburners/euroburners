@@ -147,25 +147,25 @@ input {
 }
 
 /* ***** event editing ***** */
-#editEvent {
+#eventEdit {
   width: 800px;
   margin: 10px auto;
 }
-#editEvent > label {
+#eventEdit > label {
   display: block;
   margin-bottom: 10px;
 }
-#editEvent > label > span {
+#eventEdit > label > span {
   display: inline-block;
   width: 20%;
   vertical-align: top;
   text-align: right;
 }
-#editEvent > label > span::after {
+#eventEdit > label > span::after {
   content: ':';
 }
-#editEvent > label > input[type=text], 
-#editEvent > label > textarea {
+#eventEdit > label > input[type=text], 
+#eventEdit > label > textarea {
   width: 60%;
   font-size: 1em;
 }

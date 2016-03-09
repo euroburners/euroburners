@@ -43,7 +43,7 @@ FlowRouter.route('/map', {
 /* ***** route: events ***** */ 
 FlowRouter.route('/events', {
   action: function(params) {
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'events'});
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'eventList'});
     setSelectedNavigationTab('#nav-events');
   }  
 });
@@ -51,7 +51,7 @@ FlowRouter.route('/events', {
 FlowRouter.route('/events/:id', {
   action: function(params) {
     hideModal();
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'viewEvent'});
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'eventView'});
     setSelectedNavigationTab('#nav-events');
   }  
 });
@@ -59,7 +59,7 @@ FlowRouter.route('/events/:id', {
 FlowRouter.route('/events/:id/edit', {
   action: function(params) {
     hideModal();
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'editEvent'});
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'eventEdit'});
     setSelectedNavigationTab('#nav-events');
   }  
 });

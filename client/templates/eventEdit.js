@@ -1,11 +1,11 @@
 var selectedEvent = null;
 
-Template.editEvent.helpers({
+Template.eventEdit.helpers({
   selectedEvent: function() {
     selectedEvent = Events.findOne(Session.get('selectedEventId')); 
     return selectedEvent;
   }
 });
 
-Template.editEvent.events({
+Template.eventEdit.events({
 });
