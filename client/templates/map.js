@@ -47,7 +47,7 @@ Template.map.rendered = function() {
     markerColor: 'purple'
   });
   
-  map.setView([50, 15.5], 4);
+  map.setView([50, 10], 5);
   
   // we can use this to zoom to current location (use on mobile devices?)
   // map.locate({setView: true, maxZoom: 11});
