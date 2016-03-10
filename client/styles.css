@@ -50,7 +50,7 @@ input {
 #calendar .event .shortDate {
   display: table-cell;
   height: 75px;
-  width: 15%;
+  width: 85px;
   font-size: 1.5em;
   text-align: center;
   vertical-align: inherit;
