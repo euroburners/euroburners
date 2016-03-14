@@ -1,3 +1,10 @@
+function setContactTypeRole(userId, doc) {
+  if (doc && doc.profile && doc.profile.contactType) {
+    Roles.addUsersToRoles(userId, doc.profile.contactType);
+  }
+}
+
+
 Meteor.users.before.insert(function(userId, doc) {
   var profileTemplate = {
     firstName: null,
@@ -12,3 +19,6 @@ Meteor.users.before.insert(function(userId, doc) {
 
   console.log(doc);
 });
+
+Meteor.users.after.insert(setContactTypeRole);
+Meteor.users.after.update(setContactTypeRole);
