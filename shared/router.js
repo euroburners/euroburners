@@ -1,3 +1,4 @@
+// TODO: fix this 
 function setSelectedNavigationTab(selector) {
   $('.nav-item.selected').removeClass('selected');
   $(selector).addClass('selected');
@@ -63,6 +64,14 @@ FlowRouter.route('/events/:id/edit', {
     setSelectedNavigationTab('#nav-events');
   }  
 });
+/* ***** route: events editing ***** */ 
+FlowRouter.route('/events/new', {
+  action: function(params) {
+    hideModal();
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'eventNew'});
+    setSelectedNavigationTab('#nav-events');
+  }  
+});
 
 
 /* ***** route: communities ***** */ 
@@ -76,7 +85,7 @@ FlowRouter.route('/communities', {
 FlowRouter.route('/communities/:id', {
   action: function(params) {
     hideModal();
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'commmunityView'});
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'communityView'});
     setSelectedNavigationTab('#nav-groups');
   }  
 });
@@ -84,7 +93,7 @@ FlowRouter.route('/communities/:id', {
 FlowRouter.route('/communities/:id/edit', {
   action: function(params) {
     hideModal();
-    FlowLayout.render('layout-main', {nav: 'navbar', main: 'commmunityEdit'});
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'communityEdit'});
     setSelectedNavigationTab('#nav-groups');
   }  
 });

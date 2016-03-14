@@ -159,9 +159,12 @@ Schemas.Event = new SimpleSchema({
   },
   submitterName: {
     type: String,
-    optional: function() {
-      return Meteor.user && !Meteor.userId();
-    }
+    optional: Meteor.userId
+  },
+  submitterEmail: {
+    type: String,
+    optional: Meteor.userId,
+    regEx: SimpleSchema.RegEx.Email
   },
   fbEvent: {
     type: String,

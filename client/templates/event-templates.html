@@ -8,19 +8,23 @@
   location: String, // id corresponding to Location collection
   contact: String, // id corresponding to Person collection
   submitterName: String,
+  submitterEmail: String,
   fbEvent: String,
   eventUri: String,
   ticketsOnSale: Boolean, 
+  // TODO: consider changing ticketsOnSale to ticketSaleStartDateTime
   ticketUri: String,
   uris: [String]
 -->
 
+<!-- list all events - this may not be necessary -->
 <template name="eventList">
   <div id="events">
     == events view coming soon ==
   </div> 
 </template>
 
+<!-- modal to show minimal details (when clicking event icon on map) -->
 <template name="eventDetail">
   <div id="eventDetail" class="ui small modal">
     <div id="eventDetailContent" class="modal-detail">
@@ -72,12 +76,14 @@
   </div>
 </template>
 
+<!-- show minimal details (when searching) -->
 <template name="eventResult">
   <div class="event result">
     {{name}}
   </div>
 </template>
 
+<!-- edit an existing event -->
 <template name="eventEdit">
   <div id="eventEdit">
     {{#with selectedEvent}}
@@ -141,6 +147,7 @@
   </div>
 </template>
 
+<!-- view full event listing -->
 <template name="eventView">
   <div id="eventView">
     == event view coming soon ==
@@ -202,5 +209,11 @@
     </label>
     {{/with}}
     -->
+  </div>
+</template>
+
+<template name="eventNew">
+  <div id="eventNew">
+    == add new event coming soon == 
   </div>
 </template>
