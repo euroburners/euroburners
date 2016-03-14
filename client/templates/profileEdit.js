@@ -1,6 +1,6 @@
 var requiredFieldsComplete = {}; 
 
-Template.profile.rendered = function() {
+Template.profileEdit.rendered = function() {
   // This page should only be visible if we have a logged-in user
   // and are coming directly from /register 
   // TODO: figure out why referrer isn't working 
@@ -10,7 +10,7 @@ Template.profile.rendered = function() {
   }
 }
 
-Template.profile.events({
+Template.profileEdit.events({
   // 'blur [data-key]': function(evt, tmpl) {
   //   var elem = evt.currentTarget; 
   //   requiredFieldsComplete[elem.dataset.key] = !!elem.value;

@@ -115,13 +115,18 @@ FlowRouter.route('/register', {
   }  
 });
 
-/* ***** route: profile ***** */ 
+/* ***** route: profile (view/edit) ***** */ 
 FlowRouter.route('/profile/:id', {
   action: function(params) {
-    FlowLayout.render('profile');
+    Session.set('profileId', params.id);
+    FlowLayout.render('profileView');
   }  
 });
-
+FlowRouter.route('/profile/:id/edit', {
+  action: function(params) {
+    FlowLayout.render('profileEdit');
+  }  
+});
 /* if no ID is present in URI, redirect to home */
 FlowRouter.route('/profile/', {
   action: function(params) {

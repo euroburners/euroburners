@@ -1,4 +1,6 @@
-<template name="profile">
+<!-- TODO: rework layout to use semantic-ui classes -->
+
+<template name="profileEdit">
   <style>
     .col1, .col2 {
       display: inline-block;
@@ -19,7 +21,7 @@
     }
   </style>
 
-  <div id="profile" style="width: 60%; margin: 50px auto 20px; border:1px solid; border-radius: 5px; padding: 5px;">
+  <div id="profileEdit" style="width: 60%; margin: 50px auto 20px; border:1px solid; border-radius: 5px; padding: 5px;">
     {{#with currentUser}}
     <div class="col1">First Name:</div>
     <div class="col2"><input type="text" data-key="profile.firstName" placeholder="First Name" value="{{profile.firstName}}"></div>
@@ -69,6 +71,38 @@
     <div class="col2">
       <button>Update profile</button>
     </div>
+    {{/with}}
+  </div>
+</template>
+
+<template name="profileView">
+  <style>
+    .col1, .col2 {
+      display: inline-block;
+      width: 47%;
+      margin: 5px;
+      vertical-align: top;
+    }
+    .col1 {
+      text-align: right;
+      padding-top: 4px;
+    }
+    
+    input, 
+    select, 
+    button {
+      width: 100%;
+      font: inherit;
+    }
+  </style>
+
+  <div id="profileView" style="width: 60%; margin: 50px auto 20px; border:1px solid; border-radius: 5px; padding: 5px;">
+    {{#with user}}
+    <div>{{profile.firstName}} {{profile.lastName}}</div>
+    <div>aka {{profile.handle}}</div>
+
+    {{#if profile.city}}{{profile.city}}, {{/if}}
+    {{#if profile.country}}{{profile.country}}{{/if}}
     {{/with}}
   </div>
 </template>

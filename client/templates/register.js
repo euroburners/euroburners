@@ -27,7 +27,7 @@ Template.register.events({
               // TODO: handle error
             }
             else {
-              FlowRouter.go('/profile/' + Meteor.userId());
+              FlowRouter.go('/profile/' + Meteor.userId() + '/edit');
             }
           });
         }
