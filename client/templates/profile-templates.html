@@ -13,11 +13,15 @@
       padding-top: 4px;
     }
     
-    input, 
+    input[type=text], 
     select, 
     button {
       width: 100%;
       font: inherit;
+    }
+    
+    input[type=radio] {
+      margin-right: 5px;
     }
   </style>
 
@@ -66,6 +70,13 @@
     
     <div class="col1">City:</div>
     <div class="col2"><input type="text" data-key="profile.city" placeholder="City" value="{{profile.city}}"></div>
+
+    <div class="col1">I am:</div>
+    <div class="col2">
+      <label><input type="radio" data-key="profile.contactType" name="contactType" value="Regional Contact">Burning Man Regional Contact</label><br>
+      <label><input type="radio" data-key="profile.contactType" name="contactType" value="Community Leader">Community Leader</label><br>
+      <label><input type="radio" data-key="profile.contactType" name="contactType" value="Event Organizer">Event Organizer</label><br>
+    </div>
 
     <div class="col1"></div>
     <div class="col2">
