@@ -101,8 +101,14 @@
     <div>{{profile.firstName}} {{profile.lastName}}</div>
     <div>aka {{profile.handle}}</div>
 
+    <div>
     {{#if profile.city}}{{profile.city}}, {{/if}}
     {{#if profile.country}}{{profile.country}}{{/if}}
+    </div>
     {{/with}}
+    
+    {{#if userIsCurrentUser}}
+    <div>Edit</div>
+    {{/if}}
   </div>
 </template>

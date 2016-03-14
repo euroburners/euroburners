@@ -7,6 +7,9 @@ Template.profileView.helpers({
     if (profileId) {
       return Meteor.users.findOne(profileId);
     }
+  },
+  userIsCurrentUser: function() {
+    return Session.equals('profileId', Meteor.userId());
   }
 });
 // Template.profileView.events({});
