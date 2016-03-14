@@ -119,12 +119,12 @@ FlowRouter.route('/register', {
 FlowRouter.route('/profile/:id', {
   action: function(params) {
     Session.set('profileId', params.id);
-    FlowLayout.render('profileView');
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'profileView'});
   }  
 });
 FlowRouter.route('/profile/:id/edit', {
   action: function(params) {
-    FlowLayout.render('profileEdit');
+    FlowLayout.render('layout-main', {nav: 'navbar', main: 'profileEdit'});
   }  
 });
 /* if no ID is present in URI, redirect to home */

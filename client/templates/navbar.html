@@ -10,10 +10,10 @@
 
       <div class="six wide column">
         <div class="ui secondary menu">
-          <a class="item" id="nav-map">Map</a>
-          <a class="item" id="nav-calendar">Calendar</a>
-          <!-- <a class="item" id="nav-events">Events</a> -->
-          <a class="item" id="nav-groups">Communities</a>
+          <a class="item" href="map" id="nav-map">Map</a>
+          <a class="item" href="calendar" id="nav-calendar">Calendar</a>
+          <!-- <a class="item" href="events" id="nav-events">Events</a> -->
+          <a class="item" href="communities" id="nav-groups">Communities</a>
           <!--
           <div class="ui dropdown item">
             Resources
@@ -35,6 +35,10 @@
           {{/if}}
           <div class="menu transition hidden" tabindex="-1" style="z-index: 100;">
             <a class="item" href="/events/new">Add Event</a>
+            {{#if currentUser}}
+            <a class="item" href="/profile/{{currentUser._id}}">View Profile</a>
+            <a class="item" href="/profile/{{currentUser._id}}/edit">Edit Profile</a>
+            {{/if}}
             <!-- <a class="item" href="/">Edit Community</a> -->
           </div>
         </div>  

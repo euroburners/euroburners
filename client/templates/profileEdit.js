@@ -1,14 +1,20 @@
 var requiredFieldsComplete = {}; 
 
-Template.profileEdit.rendered = function() {
-  // This page should only be visible if we have a logged-in user
-  // and are coming directly from /register 
-  // TODO: figure out why referrer isn't working 
-  if (-1 === window.location.href.indexOf(Meteor.userId())) {
-  // if (!Meteor.user()) {
+Template.profileEdit.onRendered(function() {
+  var user = Meteor.user(), 
+      userProfile = user.profile;
+
+  if (!user) {
     FlowRouter.go('/');
   }
-}
+
+  if (userProfile.country) {
+    $('option[value="' + user.profile.country + '"]').attr('selected', true);
+  }
+  if (userProfile.contactType) {
+    $('input[value="' + user.profile.contactType + '"]').attr('checked', true);
+  }
+});
 
 Template.profileEdit.events({
   // 'blur [data-key]': function(evt, tmpl) {

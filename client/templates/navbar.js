@@ -30,12 +30,5 @@ Template.navbar.events({
   
   'click #navicon': function(event, template) {
     $('#nav-menu').show();
-  },
-  
-  'click #brandbar a.item': function(event, template) {
-    FlowRouter.go('/' + event.currentTarget.innerText.toLowerCase());
-    
-    // TODO: conditional based on screen width / device check 
-    // $('#nav-menu').hide();
   }
 });
