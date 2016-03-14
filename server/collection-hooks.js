@@ -1,6 +1,6 @@
 function setContactTypeRole(userId, doc) {
   if (doc && doc.profile && doc.profile.contactType) {
-    Roles.addUsersToRoles(userId, doc.profile.contactType);
+    Roles.setUserRoles(userId, doc.profile.contactType);
   }
 }
 
